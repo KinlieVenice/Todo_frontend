@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+    --font-inter: "Inter", "sans-serif"; 
+    --color-primary: #81C784;
+    --color-accent: #FFC107;
+    --color-dark: #2F2F2F;
+    --color-light: #FFFFFF;
+    --color-bg: #F8F8F8;
+}
+
+@layer base {
+    .container {
+        @apply max-w-[1600px] w-full px-5 sm:px-8 md:px-10 lg:px-20 mx-auto font-inter;
+      }
+    
+    h1 {
+        @apply font-extrabold lg:text-5xl md:text-4xl text-2xl;
+    }
+
+    h2 {
+        @apply font-bold lg:text-2xl md:text-xl text-lg;
+    }
+
+    h3 {
+        @apply font-semibold lg:text-xl md:text-lg text-sm;
+    }
+
+    h4 {
+        @apply lg:text-base md:text-sm text-xs;
+    }
+
+    h5 {
+        @apply lg:text-sm md:text-xs text-xs;
+    }
+
+    h6 {
+        @apply lg:text-xs text-xs;
+    }
+
+    p {
+        @apply lg:text-lg md:text-base text-xs;
+    }
+
+    a {
+        @apply cursor-pointer;
+    }
+}
+
+@layer components {
+    .tabs {
+        @apply flex gap-x-[15px] items-center bg-bg w-full py-[8px] pl-[13px] pr-[8px] border border-transparent rounded-[8px] text-dark;
+    }
+
+    .tabs-indent {
+        @apply flex gap-x-[15px] items-center bg-bg w-full py-[8px] pr-[8px] border border-transparent rounded-[8px] text-dark pl-[50px];
+    }
+
+    .tabs svg {
+        @apply fill-primary;
+    }
+    
+    .tabs-selected {
+        @apply !bg-primary !text-light ;
+    }
+
+    .tabs-selected svg{
+        @apply !fill-light;
+    }
+
+    .checkbox {
+        @apply w-4 h-4 rounded-[4px] border-2 border-primary peer-checked:bg-primary peer-checked:border-primary transition-colors;
+    }
+
+    .subject {
+        @apply font-semibold flex justify-between py-[10px] px-[20px] mb-[15px] bg-accent border border-transparent rounded-[14px];
+    }
+
+}
