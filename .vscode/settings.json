@@ -1,0 +1,12 @@
+{
+  "liveServer.settings.multiRootWorkspaceName": "app-todo",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "python.defaultInterpreterPath": "C:\\Program Files\\Python39\\python.exe",
+  "files.autoSave": "afterDelay",
+  "liveServer.settings.CustomBrowser": "chrome",
+  "liveServer.settings.ChromeDebuggingAttachment": false,
+  "liveServer.settings.wait": 100,
+  "liveServer.settings.reloadOnSave": true
+}

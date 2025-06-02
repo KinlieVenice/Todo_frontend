@@ -33,9 +33,9 @@
     </header>
 
     <section class="cover relative">
-      <div class="cover_img bg-[url('../img/cover.png')] bg-cover bg-center bg-no-repeat h-[160px] border border-primary rounded-bl-[50px] rounded-br-[50px]">
-
-      </div>
+      <div
+        class="cover_img bg-[url('../img/cover.png')] bg-cover bg-center bg-no-repeat h-[160px] border border-primary rounded-bl-[50px] rounded-br-[50px]"
+      ></div>
       <img
         src="../img/profile.jpg"
         class="absolute -bottom-[40%] ml-[115px] border border-light rounded-full w-[130px] aspect-square object-cover"
@@ -49,8 +49,9 @@
           <!-- <img src="../img/2x2.png" class="border-2 border-light rounded-full w-[130px]" alt="profile picture"/> -->
           <h3>KINLIE DE GUZMAN</h3>
           <span class="block bg-primary h-[8px] w-full rounded-[8px]"></span>
-          <span class="block bg-[url('../img/cover.png')] bg-cover bg-center bg-no-repeat h-[160px] w-full">
-
+          <span
+            class="block bg-[url('../img/cover.png')] bg-cover bg-center bg-no-repeat h-[160px] w-full"
+          >
           </span>
           <div class="tabs tabs-selected">
             <svg
@@ -131,51 +132,386 @@
           </div>
         </div>
       </div>
-      
-      <main class="flex-1 w-full h-full mx-auto px-20 max-w-[3200px]">
-        <div class="flex justify-between w-full items-center pb-5">
+
+      <main class="flex-1 w-full h-full mx-auto px-30 max-w-[3200px]">
+        <div class="main__label flex justify-between w-full items-center pb-5">
           <div class="flex gap-10 items-center">
             <h2>My Tasks</h2>
             <span class="flex gap-[20px]">
               <label class="inline-flex items-center cursor-pointer">
-                <input type="radio" name="option" value="all" class="peer sr-only" />
+                <input
+                  type="radio"
+                  name="option"
+                  value="all"
+                  class="peer sr-only"
+                />
                 <span class="checkbox"></span>
                 <span class="ml-2 text-lg">All</span>
               </label>
               <label class="inline-flex items-center cursor-pointer">
-                <input type="radio" name="option" value="per-subj" class="peer sr-only" />
+                <input
+                  type="radio"
+                  name="option"
+                  value="per-subj"
+                  class="peer sr-only"
+                />
                 <span class="checkbox"></span>
                 <span class="ml-2 text-lg">Per Subject</span>
               </label>
               <label class="inline-flex items-center cursor-pointer">
-                <input type="radio" name="option" value="majors" class="peer sr-only" />
+                <input
+                  type="radio"
+                  name="option"
+                  value="majors"
+                  class="peer sr-only"
+                />
                 <span class="checkbox"></span>
                 <span class="ml-2 text-lg">Major</span>
               </label>
               <label class="inline-flex items-center cursor-pointer">
-                <input type="radio" name="option" value="minors" class="peer sr-only" />
+                <input
+                  type="radio"
+                  name="option"
+                  value="minors"
+                  class="peer sr-only"
+                />
                 <span class="checkbox"></span>
                 <span class="ml-2 text-lg">Minor</span>
               </label>
             </span>
           </div>
-          <div class="subj_btns flex gap-[7px]">
-            <svg width="30" height="31" viewBox="0 0 30 31" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect y="0.5" width="30" height="30" rx="8" fill="#FFC107"/>
-                <path d="M19.2857 14.9643V16.0357C19.2857 16.2567 19.1049 16.4375 18.8839 16.4375H15.9375V19.3839C15.9375 19.6049 15.7567 19.7857 15.5357 19.7857H14.4643C14.2433 19.7857 14.0625 19.6049 14.0625 19.3839V16.4375H11.1161C10.8951 16.4375 10.7143 16.2567 10.7143 16.0357V14.9643C10.7143 14.7433 10.8951 14.5625 11.1161 14.5625H14.0625V11.6161C14.0625 11.3951 14.2433 11.2143 14.4643 11.2143H15.5357C15.7567 11.2143 15.9375 11.3951 15.9375 11.6161V14.5625H18.8839C19.1049 14.5625 19.2857 14.7433 19.2857 14.9643ZM22.5 9.60714V21.3929C22.5 22.2801 21.7801 23 20.8929 23H9.10714C8.21987 23 7.5 22.2801 7.5 21.3929V9.60714C7.5 8.71987 8.21987 8 9.10714 8H20.8929C21.7801 8 22.5 8.71987 22.5 9.60714ZM20.8929 21.192V9.80804C20.8929 9.69754 20.8025 9.60714 20.692 9.60714H9.30804C9.19754 9.60714 9.10714 9.69754 9.10714 9.80804V21.192C9.10714 21.3025 9.19754 21.3929 9.30804 21.3929H20.692C20.8025 21.3929 20.8929 21.3025 20.8929 21.192Z" fill="#F5F5F5"/>
+          <div class="subj_btns flex gap-[7px]" >
+            <svg onclick="document.getElementById('createSubjModal').classList.remove('hidden')"
+              width="30"
+              height="31"
+              viewBox="0 0 30 31"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect y="0.5" width="30" height="30" rx="8" fill="#FFC107" />
+              <path
+                d="M19.2857 14.9643V16.0357C19.2857 16.2567 19.1049 16.4375 18.8839 16.4375H15.9375V19.3839C15.9375 19.6049 15.7567 19.7857 15.5357 19.7857H14.4643C14.2433 19.7857 14.0625 19.6049 14.0625 19.3839V16.4375H11.1161C10.8951 16.4375 10.7143 16.2567 10.7143 16.0357V14.9643C10.7143 14.7433 10.8951 14.5625 11.1161 14.5625H14.0625V11.6161C14.0625 11.3951 14.2433 11.2143 14.4643 11.2143H15.5357C15.7567 11.2143 15.9375 11.3951 15.9375 11.6161V14.5625H18.8839C19.1049 14.5625 19.2857 14.7433 19.2857 14.9643ZM22.5 9.60714V21.3929C22.5 22.2801 21.7801 23 20.8929 23H9.10714C8.21987 23 7.5 22.2801 7.5 21.3929V9.60714C7.5 8.71987 8.21987 8 9.10714 8H20.8929C21.7801 8 22.5 8.71987 22.5 9.60714ZM20.8929 21.192V9.80804C20.8929 9.69754 20.8025 9.60714 20.692 9.60714H9.30804C9.19754 9.60714 9.10714 9.69754 9.10714 9.80804V21.192C9.10714 21.3025 9.19754 21.3929 9.30804 21.3929H20.692C20.8025 21.3929 20.8929 21.3025 20.8929 21.192Z"
+                fill="#F5F5F5"
+              />
             </svg>
-            <svg width="30" height="31" viewBox="0 0 30 31" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect y="0.5" width="30" height="30" rx="8" fill="#4CAF50"/>
-                <path d="M17.5 7.95811C18.58 7.95811 19.58 8.29978 20.3975 8.88311L12.7858 16.4939C12.7062 16.5708 12.6428 16.6628 12.5991 16.7644C12.5554 16.8661 12.5324 16.9755 12.5315 17.0861C12.5305 17.1968 12.5516 17.3065 12.5935 17.4089C12.6354 17.5113 12.6973 17.6044 12.7755 17.6826C12.8537 17.7609 12.9468 17.8227 13.0492 17.8646C13.1516 17.9065 13.2614 17.9276 13.372 17.9267C13.4827 17.9257 13.592 17.9027 13.6937 17.859C13.7953 17.8154 13.8873 17.7519 13.9642 17.6723L21.5758 10.0606C22.1784 10.9065 22.5016 11.9196 22.5 12.9581V21.2914C22.5 21.7335 22.3244 22.1574 22.0118 22.47C21.6993 22.7825 21.2754 22.9581 20.8333 22.9581H9.16667C8.72464 22.9581 8.30072 22.7825 7.98816 22.47C7.67559 22.1574 7.5 21.7335 7.5 21.2914V9.62478C7.5 9.18275 7.67559 8.75883 7.98816 8.44627C8.30072 8.13371 8.72464 7.95811 9.16667 7.95811H17.5ZM23.0475 7.41061C23.2037 7.56689 23.2915 7.77881 23.2915 7.99978C23.2915 8.22075 23.2037 8.43267 23.0475 8.58895L21.575 10.0606C21.2505 9.60504 20.8522 9.2068 20.3967 8.88228L21.8683 7.41061C22.0246 7.25439 22.2365 7.16663 22.4575 7.16663C22.6785 7.16663 22.8912 7.25439 23.0475 7.41061Z" fill="white"/>
+            <svg onclick="document.getElementById('editSubjModal').classList.remove('hidden')"
+              width="30"
+              height="31"
+              viewBox="0 0 30 31"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect y="0.5" width="30" height="30" rx="8" fill="#4CAF50" />
+              <path
+                d="M17.5 7.95811C18.58 7.95811 19.58 8.29978 20.3975 8.88311L12.7858 16.4939C12.7062 16.5708 12.6428 16.6628 12.5991 16.7644C12.5554 16.8661 12.5324 16.9755 12.5315 17.0861C12.5305 17.1968 12.5516 17.3065 12.5935 17.4089C12.6354 17.5113 12.6973 17.6044 12.7755 17.6826C12.8537 17.7609 12.9468 17.8227 13.0492 17.8646C13.1516 17.9065 13.2614 17.9276 13.372 17.9267C13.4827 17.9257 13.592 17.9027 13.6937 17.859C13.7953 17.8154 13.8873 17.7519 13.9642 17.6723L21.5758 10.0606C22.1784 10.9065 22.5016 11.9196 22.5 12.9581V21.2914C22.5 21.7335 22.3244 22.1574 22.0118 22.47C21.6993 22.7825 21.2754 22.9581 20.8333 22.9581H9.16667C8.72464 22.9581 8.30072 22.7825 7.98816 22.47C7.67559 22.1574 7.5 21.7335 7.5 21.2914V9.62478C7.5 9.18275 7.67559 8.75883 7.98816 8.44627C8.30072 8.13371 8.72464 7.95811 9.16667 7.95811H17.5ZM23.0475 7.41061C23.2037 7.56689 23.2915 7.77881 23.2915 7.99978C23.2915 8.22075 23.2037 8.43267 23.0475 8.58895L21.575 10.0606C21.2505 9.60504 20.8522 9.2068 20.3967 8.88228L21.8683 7.41061C22.0246 7.25439 22.2365 7.16663 22.4575 7.16663C22.6785 7.16663 22.8912 7.25439 23.0475 7.41061Z"
+                fill="white"
+              />
             </svg>
-            <svg width="30" height="31" viewBox="0 0 30 31" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect y="0.5" width="30" height="30" rx="8" fill="#FF3B30"/>
-                <path d="M9.99984 21.3333C9.99984 22.25 10.7498 23 11.6665 23H18.3332C19.2498 23 19.9998 22.25 19.9998 21.3333V13C19.9998 12.0833 19.2498 11.3333 18.3332 11.3333H11.6665C10.7498 11.3333 9.99984 12.0833 9.99984 13V21.3333ZM19.9998 8.83333H17.9165L17.3248 8.24167C17.1748 8.09167 16.9582 8 16.7415 8H13.2582C13.0415 8 12.8248 8.09167 12.6748 8.24167L12.0832 8.83333H9.99984C9.5415 8.83333 9.1665 9.20833 9.1665 9.66667C9.1665 10.125 9.5415 10.5 9.99984 10.5H19.9998C20.4582 10.5 20.8332 10.125 20.8332 9.66667C20.8332 9.20833 20.4582 8.83333 19.9998 8.83333Z" fill="white"/>
-            </svg>   
+            <svg onclick="document.getElementById('deleteSubjModal').classList.remove('hidden')"
+              width="30"
+              height="31"
+              viewBox="0 0 30 31"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect y="0.5" width="30" height="30" rx="8" fill="#FF3B30" />
+              <path
+                d="M9.99984 21.3333C9.99984 22.25 10.7498 23 11.6665 23H18.3332C19.2498 23 19.9998 22.25 19.9998 21.3333V13C19.9998 12.0833 19.2498 11.3333 18.3332 11.3333H11.6665C10.7498 11.3333 9.99984 12.0833 9.99984 13V21.3333ZM19.9998 8.83333H17.9165L17.3248 8.24167C17.1748 8.09167 16.9582 8 16.7415 8H13.2582C13.0415 8 12.8248 8.09167 12.6748 8.24167L12.0832 8.83333H9.99984C9.5415 8.83333 9.1665 9.20833 9.1665 9.66667C9.1665 10.125 9.5415 10.5 9.99984 10.5H19.9998C20.4582 10.5 20.8332 10.125 20.8332 9.66667C20.8332 9.20833 20.4582 8.83333 19.9998 8.83333Z"
+                fill="white"
+              />
+            </svg>
+          </div>
+        </div>
+
+        <div id="subject__div">
+          <!-- tasks and subj here -->
+        </div>
+
+        <!-- Button to open the modal -->
+        <button >Create</button>
+
+        <!-- Modal -->
+        <div id="createSubjModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 hidden">
+          <div class="bg-bg w-full max-w-md p-6 rounded-[8px] shadow-xl relative">
+            <!-- Close button -->
+            <button onclick="document.getElementById('createSubjModal').classList.add('hidden')" class="absolute top-2 right-2 text-gray-400 hover:text-gray-600">
+              &times;
+            </button>
+
+            <h2 class="text-xl font-semibold text-primary mb-4">Create Subject</h2>
+
+            <form id="createSubjectForm" class="space-y-4">
+              <!-- Name -->
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                <input type="text" name="name" class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" required>
+              </div>
+
+              <!-- Class (Major/Minor) -->
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Class</label>
+                <select name="class_type" class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" required>
+                  <option value="">Select</option>
+                  <option value="major">Major</option>
+                  <option value="minor">Minor</option>
+                </select>
+              </div>
+
+              <!-- Color Options -->
+                  <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Color</label>
+                    <div class="flex flex-wrap gap-2">
+                      <!-- Each label handles a pastel color radio with ring on checked -->
+                      <label class="cursor-pointer">
+                        <input type="radio" name="color" value="#FFD1DC" class="hidden peer" required>
+                        <span class="w-8 h-8 block rounded-full bg-pink-200 peer-checked:ring-2 peer-checked:ring-primary border-2 border-transparent hover:border-primary"></span>
+                      </label>
+                      <label class="cursor-pointer">
+                        <input type="radio" name="color" value="#A0E7E5" class="hidden peer">
+                        <span class="w-8 h-8 block rounded-full bg-cyan-200 peer-checked:ring-2 peer-checked:ring-primary border-2 border-transparent hover:border-primary"></span>
+                      </label>
+                      <label class="cursor-pointer">
+                        <input type="radio" name="color" value="#BDB2FF" class="hidden peer">
+                        <span class="w-8 h-8 block rounded-full bg-purple-200 peer-checked:ring-2 peer-checked:ring-primary border-2 border-transparent hover:border-primary"></span>
+                      </label>
+                      <label class="cursor-pointer">
+                        <input type="radio" name="color" value="#FFDAC1" class="hidden peer">
+                        <span class="w-8 h-8 block rounded-full bg-orange-200 peer-checked:ring-2 peer-checked:ring-primary border-2 border-transparent hover:border-primary"></span>
+                      </label>
+                  
+                      <!-- "Boyish" Pastel Colors -->
+                      <label class="cursor-pointer">
+                        <input type="radio" name="color" value="#C3F0CA" class="hidden peer">
+                        <span class="w-8 h-8 block rounded-full bg-green-200 peer-checked:ring-2 peer-checked:ring-primary border-2 border-transparent hover:border-primary"></span>
+                      </label>
+                      <label class="cursor-pointer">
+                        <input type="radio" name="color" value="#AEC6CF" class="hidden peer">
+                        <span class="w-8 h-8 block rounded-full bg-blue-200 peer-checked:ring-2 peer-checked:ring-primary border-2 border-transparent hover:border-primary"></span>
+                      </label>
+                      <label class="cursor-pointer">
+                        <input type="radio" name="color" value="#D5E1DF" class="hidden peer">
+                        <span class="w-8 h-8 block rounded-full bg-gray-200 peer-checked:ring-2 peer-checked:ring-primary border-2 border-transparent hover:border-primary"></span>
+                      </label>
+                      <label class="cursor-pointer">
+                        <input type="radio" name="color" value="#B2EBF2" class="hidden peer">
+                        <span class="w-8 h-8 block rounded-full bg-teal-200 peer-checked:ring-2 peer-checked:ring-primary border-2 border-transparent hover:border-primary"></span>
+                      </label>
+                    </div>
+                </div>
+
+              <!-- Submit -->
+              <div class="text-right">
+                <button type="submit" class="bg-primary text-white px-4 py-2 rounded-md hover:bg-opacity-90">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div id="editSubjModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 hidden">
+          <div class="bg-bg w-full max-w-md p-6 rounded-[8px] shadow-xl relative">
+            <!-- Close button -->
+            <button onclick="document.getElementById('editSubjModal').classList.add('hidden')" class="absolute top-2 right-2 text-gray-400 hover:text-gray-600">
+              &times;
+            </button>
+
+            <h2 class="text-xl font-semibold text-primary mb-4">Edit Subject</h2>
+
+            <form id="createSubjectForm" class="space-y-4">
+              <!-- Name -->
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                <input type="text" name="name" class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" required>
+              </div>
+
+              <!-- Class (Major/Minor) -->
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Class</label>
+                <select name="class_type" class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" required>
+                  <option value="">Select</option>
+                  <option value="major">Major</option>
+                  <option value="minor">Minor</option>
+                </select>
+              </div>
+
+              <!-- Color Options -->
+                  <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Color</label>
+                    <div class="flex flex-wrap gap-2">
+                      <!-- Each label handles a pastel color radio with ring on checked -->
+                      <label class="cursor-pointer">
+                        <input type="radio" name="color" value="#FFD1DC" class="hidden peer" required>
+                        <span class="w-8 h-8 block rounded-full bg-pink-200 peer-checked:ring-2 peer-checked:ring-primary border-2 border-transparent hover:border-primary"></span>
+                      </label>
+                      <label class="cursor-pointer">
+                        <input type="radio" name="color" value="#A0E7E5" class="hidden peer">
+                        <span class="w-8 h-8 block rounded-full bg-cyan-200 peer-checked:ring-2 peer-checked:ring-primary border-2 border-transparent hover:border-primary"></span>
+                      </label>
+                      <label class="cursor-pointer">
+                        <input type="radio" name="color" value="#BDB2FF" class="hidden peer">
+                        <span class="w-8 h-8 block rounded-full bg-purple-200 peer-checked:ring-2 peer-checked:ring-primary border-2 border-transparent hover:border-primary"></span>
+                      </label>
+                      <label class="cursor-pointer">
+                        <input type="radio" name="color" value="#FFDAC1" class="hidden peer">
+                        <span class="w-8 h-8 block rounded-full bg-orange-200 peer-checked:ring-2 peer-checked:ring-primary border-2 border-transparent hover:border-primary"></span>
+                      </label>
+                  
+                      <!-- "Boyish" Pastel Colors -->
+                      <label class="cursor-pointer">
+                        <input type="radio" name="color" value="#C3F0CA" class="hidden peer">
+                        <span class="w-8 h-8 block rounded-full bg-green-200 peer-checked:ring-2 peer-checked:ring-primary border-2 border-transparent hover:border-primary"></span>
+                      </label>
+                      <label class="cursor-pointer">
+                        <input type="radio" name="color" value="#AEC6CF" class="hidden peer">
+                        <span class="w-8 h-8 block rounded-full bg-blue-200 peer-checked:ring-2 peer-checked:ring-primary border-2 border-transparent hover:border-primary"></span>
+                      </label>
+                      <label class="cursor-pointer">
+                        <input type="radio" name="color" value="#D5E1DF" class="hidden peer">
+                        <span class="w-8 h-8 block rounded-full bg-gray-200 peer-checked:ring-2 peer-checked:ring-primary border-2 border-transparent hover:border-primary"></span>
+                      </label>
+                      <label class="cursor-pointer">
+                        <input type="radio" name="color" value="#B2EBF2" class="hidden peer">
+                        <span class="w-8 h-8 block rounded-full bg-teal-200 peer-checked:ring-2 peer-checked:ring-primary border-2 border-transparent hover:border-primary"></span>
+                      </label>
+                    </div>
+                </div>
+
+              <!-- Submit -->
+              <div class="text-right">
+                <button type="submit" class="bg-primary text-white px-4 py-2 rounded-md hover:bg-opacity-90">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div id="createTaskModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 hidden">
+          <div class="bg-bg w-full max-w-md p-6 rounded-[8px] shadow-xl relative">
+            <!-- Close button -->
+            <button onclick="document.getElementById('createTaskModal').classList.add('hidden')" class="absolute top-2 right-2 text-gray-400 hover:text-gray-600">
+              &times;
+            </button>
+        
+            <h2 class="text-xl font-semibold text-primary mb-4">Create Task</h2>
+        
+            <form id="createTaskForm" class="space-y-4" enctype="multipart/form-data">
+              <!-- Name -->
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                <input type="text" name="name" class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" required>
+              </div>
+        
+              <!-- Description -->
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Description</label>
+                <textarea name="description" rows="4" class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary resize-none" required></textarea>
+              </div>
+        
+              <!-- Deadline -->
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Deadline (YYYY-MM-DD HH:MM:SS)</label>
+                <input type="datetime-local" name="deadline" class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" required>
+              </div>
+        
+              <!-- Image Upload -->
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Image</label>
+                <input type="file" name="img_filename" accept="image/*" class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+              </div>
+        
+              <!-- Submit -->
+              <div class="text-right">
+                <button type="submit" class="bg-primary text-white px-4 py-2 rounded-md hover:bg-opacity-90">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div id="editTaskModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 hidden">
+          <div class="bg-bg w-full max-w-md p-6 rounded-[8px] shadow-xl relative">
+            <!-- Close button -->
+            <button onclick="document.getElementById('editTaskModal').classList.add('hidden')" class="absolute top-2 right-2 text-gray-400 hover:text-gray-600">
+              &times;
+            </button>
+        
+            <h2 class="text-xl font-semibold text-primary mb-4">Edit Task</h2>
+        
+            <form id="createTaskForm" class="space-y-4" enctype="multipart/form-data">
+              <!-- Name -->
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                <input type="text" name="name" class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" required>
+              </div>
+        
+              <!-- Description -->
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Description</label>
+                <textarea name="description" rows="4" class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary resize-none" required></textarea>
+              </div>
+        
+              <!-- Deadline -->
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Deadline (YYYY-MM-DD HH:MM:SS)</label>
+                <input type="datetime-local" name="deadline" class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" required>
+              </div>
+        
+              <!-- Image Upload -->
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Image</label>
+                <input type="file" name="img_filename" accept="image/*" class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+              </div>
+        
+              <!-- Submit -->
+              <div class="text-right">
+                <button type="submit" class="bg-primary text-white px-4 py-2 rounded-md hover:bg-opacity-90">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div id="deleteTaskModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 hidden">
+          <div class="bg-bg w-full max-w-md p-6 rounded-[8px] shadow-xl relative">
+            <!-- Close button -->
+            <button onclick="document.getElementById('deleteTaskModal').classList.add('hidden')" class="absolute top-2 right-2 text-gray-400 hover:text-gray-600">
+              &times;
+            </button>
+        
+            <h2 class="text-xl font-semibold text-primary mb-4">Delete Task</h2>
+        
+            <p class="pb-7">Are you sure you want to delete?</p>
+        
+              <!-- Submit -->
+              <div class="flex justify-end gap-3">
+                <button type="submit" class="bg-primary text-white px-4 py-2 rounded-md hover:bg-opacity-90">Yes</button>
+                <button  class="bg-primary text-white px-4 py-2 rounded-md hover:bg-opacity-90">Cancel</button>
+              </div>
+            </form>
           </div>
         </div>
         
-        <div class="subject">
+        <div id="deleteSubjModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 hidden">
+          <div class="bg-bg w-full max-w-md p-6 rounded-[8px] shadow-xl relative">
+            <!-- Close button -->
+            <button onclick="document.getElementById('deleteSubjModal').classList.add('hidden')" class="absolute top-2 right-2 text-gray-400 hover:text-gray-600">
+              &times;
+            </button>
+        
+            <h2 class="text-xl font-semibold text-primary mb-4">Delete Subject</h2>
+        
+            <p class="pb-7">Are you sure you want to delete?</p>
+        
+              <!-- Submit -->
+              <div class="flex justify-end gap-3">
+                <button type="submit" class="bg-primary text-white px-4 py-2 rounded-md hover:bg-opacity-90">Yes</button>
+                <button  class="bg-primary text-white px-4 py-2 rounded-md hover:bg-opacity-90">Cancel</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        
+
+
+
+
+        <!-- <div class="subject">
           <p>GNED 04</p>
           <p>Class: <span class="text-primary">Major</span></p>
         </div>
@@ -183,87 +519,85 @@
         <div class="tasks flex gap-5 w-full">
           <div class="justify-center flex flex-wrap gap-x-4 gap-y-2 w-full mb-10">
             <div class="indiv-task min-w-[300px] max-w-[500px] border bg-bg border-transparent !rounded-[12px]">
-              <div class="!bg-accent py-2 px-4 !rounded-t-[12px] flex justify-between items-center">
-                <span class="font-semibold">Deadline: <span>20/06/2025</span> | <span>12:30</span></span>
+              <div
+                class="!bg-primary py-2 px-4 !rounded-t-[12px] flex justify-between items-center"
+              >
+                <span class="font-semibold"
+                  >Deadline: <span>20/06/2025</span> | <span>12:30</span></span
+                >
                 <span class="flex gap-3 items-center">
-                  <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M10 1.39574C11.08 1.39574 12.08 1.7374 12.8975 2.32074L5.28583 9.93157C5.20624 10.0084 5.14276 10.1004 5.09908 10.2021C5.05541 10.3037 5.03242 10.4131 5.03146 10.5237C5.0305 10.6344 5.05158 10.7441 5.09348 10.8465C5.13538 10.9489 5.19726 11.042 5.2755 11.1202C5.35375 11.1985 5.44679 11.2604 5.5492 11.3023C5.65162 11.3442 5.76135 11.3652 5.872 11.3643C5.98265 11.3633 6.092 11.3403 6.19367 11.2967C6.29534 11.253 6.38729 11.1895 6.46417 11.1099L14.0758 3.49824C14.6784 4.3441 15.0016 5.35717 15 6.39574V14.7291C15 15.1711 14.8244 15.595 14.5118 15.9076C14.1993 16.2201 13.7754 16.3957 13.3333 16.3957H1.66667C1.22464 16.3957 0.800716 16.2201 0.488155 15.9076C0.175595 15.595 0 15.1711 0 14.7291V3.0624C0 2.62038 0.175595 2.19645 0.488155 1.88389C0.800716 1.57133 1.22464 1.39574 1.66667 1.39574H10ZM15.5475 0.848237C15.7037 1.00451 15.7915 1.21643 15.7915 1.4374C15.7915 1.65837 15.7037 1.8703 15.5475 2.02657L14.075 3.49824C13.7505 3.04267 13.3522 2.64442 12.8967 2.3199L14.3683 0.848237C14.5246 0.692011 14.7365 0.604248 14.9575 0.604248C15.1785 0.604248 15.3912 0.692011 15.5475 0.848237Z" fill="white"/>
+                  <svg
+                    width="16"
+                    height="17"
+                    viewBox="0 0 16 17"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M10 1.39574C11.08 1.39574 12.08 1.7374 12.8975 2.32074L5.28583 9.93157C5.20624 10.0084 5.14276 10.1004 5.09908 10.2021C5.05541 10.3037 5.03242 10.4131 5.03146 10.5237C5.0305 10.6344 5.05158 10.7441 5.09348 10.8465C5.13538 10.9489 5.19726 11.042 5.2755 11.1202C5.35375 11.1985 5.44679 11.2604 5.5492 11.3023C5.65162 11.3442 5.76135 11.3652 5.872 11.3643C5.98265 11.3633 6.092 11.3403 6.19367 11.2967C6.29534 11.253 6.38729 11.1895 6.46417 11.1099L14.0758 3.49824C14.6784 4.3441 15.0016 5.35717 15 6.39574V14.7291C15 15.1711 14.8244 15.595 14.5118 15.9076C14.1993 16.2201 13.7754 16.3957 13.3333 16.3957H1.66667C1.22464 16.3957 0.800716 16.2201 0.488155 15.9076C0.175595 15.595 0 15.1711 0 14.7291V3.0624C0 2.62038 0.175595 2.19645 0.488155 1.88389C0.800716 1.57133 1.22464 1.39574 1.66667 1.39574H10ZM15.5475 0.848237C15.7037 1.00451 15.7915 1.21643 15.7915 1.4374C15.7915 1.65837 15.7037 1.8703 15.5475 2.02657L14.075 3.49824C13.7505 3.04267 13.3522 2.64442 12.8967 2.3199L14.3683 0.848237C14.5246 0.692011 14.7365 0.604248 14.9575 0.604248C15.1785 0.604248 15.3912 0.692011 15.5475 0.848237Z"
+                      fill="white"
+                    />
                   </svg>
-                  <svg width="13" height="15" viewBox="0 0 13 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M1.62484 13.3333C1.62484 14.25 2.37484 15 3.2915 15H9.95817C10.8748 15 11.6248 14.25 11.6248 13.3333V5C11.6248 4.08333 10.8748 3.33333 9.95817 3.33333H3.2915C2.37484 3.33333 1.62484 4.08333 1.62484 5V13.3333ZM11.6248 0.833333H9.5415L8.94984 0.241667C8.79984 0.0916666 8.58317 0 8.3665 0H4.88317C4.6665 0 4.44984 0.0916666 4.29984 0.241667L3.70817 0.833333H1.62484C1.1665 0.833333 0.791504 1.20833 0.791504 1.66667C0.791504 2.125 1.1665 2.5 1.62484 2.5H11.6248C12.0832 2.5 12.4582 2.125 12.4582 1.66667C12.4582 1.20833 12.0832 0.833333 11.6248 0.833333Z" fill="white"/>
+                  <svg
+                    width="13"
+                    height="15"
+                    viewBox="0 0 13 15"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M1.62484 13.3333C1.62484 14.25 2.37484 15 3.2915 15H9.95817C10.8748 15 11.6248 14.25 11.6248 13.3333V5C11.6248 4.08333 10.8748 3.33333 9.95817 3.33333H3.2915C2.37484 3.33333 1.62484 4.08333 1.62484 5V13.3333ZM11.6248 0.833333H9.5415L8.94984 0.241667C8.79984 0.0916666 8.58317 0 8.3665 0H4.88317C4.6665 0 4.44984 0.0916666 4.29984 0.241667L3.70817 0.833333H1.62484C1.1665 0.833333 0.791504 1.20833 0.791504 1.66667C0.791504 2.125 1.1665 2.5 1.62484 2.5H11.6248C12.0832 2.5 12.4582 2.125 12.4582 1.66667C12.4582 1.20833 12.0832 0.833333 11.6248 0.833333Z"
+                      fill="white"
+                    />
                   </svg>
                 </span>
               </div>
               <div class="p-5">
                 <span class="flex justify-between items-center">
                   <label class="inline-flex items-center cursor-pointer">
-                    <input type="checkbox" name="photoshoot" value="magazine" class="peer sr-only" />
+                    <input
+                      type="checkbox"
+                      name="photoshoot"
+                      value="magazine"
+                      class="peer sr-only"
+                    />
                     <span class="checkbox"></span>
                     <h3 class="ml-2">Magazine Photoshoot</h3>
                   </label>
                   <span class="text-red-500">Due in 3 days!</span>
                 </span>
                 <div class="flex gap-8 w-full items-center px-5 p-3">
-                  <img src="../img/cover.png" alt="" class="w-[90px] aspect-square">
-                  <p class="max-w-[300px]">Noli me tangere
-                    Costume photoshoot
-                    Printed in A4 photopaper
-                    Group: 16 members
-                    All must participate
-                    Leader will grade members
-                    Members will grade leader</p>
-                </div>
-              </div>
-            </div>
-            <div class="indiv-task min-w-[300px] max-w-[500px] border bg-bg border-transparent !rounded-[12px]">
-              <div class="!bg-accent py-2 px-4 !rounded-t-[12px] flex justify-between items-center">
-                <span class="font-semibold">Deadline: <span>20/06/2025</span> | <span>12:30</span></span>
-                <span class="flex gap-3 items-center">
-                  <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M10 1.39574C11.08 1.39574 12.08 1.7374 12.8975 2.32074L5.28583 9.93157C5.20624 10.0084 5.14276 10.1004 5.09908 10.2021C5.05541 10.3037 5.03242 10.4131 5.03146 10.5237C5.0305 10.6344 5.05158 10.7441 5.09348 10.8465C5.13538 10.9489 5.19726 11.042 5.2755 11.1202C5.35375 11.1985 5.44679 11.2604 5.5492 11.3023C5.65162 11.3442 5.76135 11.3652 5.872 11.3643C5.98265 11.3633 6.092 11.3403 6.19367 11.2967C6.29534 11.253 6.38729 11.1895 6.46417 11.1099L14.0758 3.49824C14.6784 4.3441 15.0016 5.35717 15 6.39574V14.7291C15 15.1711 14.8244 15.595 14.5118 15.9076C14.1993 16.2201 13.7754 16.3957 13.3333 16.3957H1.66667C1.22464 16.3957 0.800716 16.2201 0.488155 15.9076C0.175595 15.595 0 15.1711 0 14.7291V3.0624C0 2.62038 0.175595 2.19645 0.488155 1.88389C0.800716 1.57133 1.22464 1.39574 1.66667 1.39574H10ZM15.5475 0.848237C15.7037 1.00451 15.7915 1.21643 15.7915 1.4374C15.7915 1.65837 15.7037 1.8703 15.5475 2.02657L14.075 3.49824C13.7505 3.04267 13.3522 2.64442 12.8967 2.3199L14.3683 0.848237C14.5246 0.692011 14.7365 0.604248 14.9575 0.604248C15.1785 0.604248 15.3912 0.692011 15.5475 0.848237Z" fill="white"/>
-                  </svg>
-                  <svg width="13" height="15" viewBox="0 0 13 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M1.62484 13.3333C1.62484 14.25 2.37484 15 3.2915 15H9.95817C10.8748 15 11.6248 14.25 11.6248 13.3333V5C11.6248 4.08333 10.8748 3.33333 9.95817 3.33333H3.2915C2.37484 3.33333 1.62484 4.08333 1.62484 5V13.3333ZM11.6248 0.833333H9.5415L8.94984 0.241667C8.79984 0.0916666 8.58317 0 8.3665 0H4.88317C4.6665 0 4.44984 0.0916666 4.29984 0.241667L3.70817 0.833333H1.62484C1.1665 0.833333 0.791504 1.20833 0.791504 1.66667C0.791504 2.125 1.1665 2.5 1.62484 2.5H11.6248C12.0832 2.5 12.4582 2.125 12.4582 1.66667C12.4582 1.20833 12.0832 0.833333 11.6248 0.833333Z" fill="white"/>
-                  </svg>
-                </span>
-              </div>
-              <div class="p-5">
-                <span class="flex justify-between items-center">
-                  <label class="inline-flex items-center cursor-pointer">
-                    <input type="checkbox" name="photoshoot" value="magazine" class="peer sr-only" />
-                    <span class="checkbox"></span>
-                    <h3 class="ml-2">Magazine Photoshoot</h3>
-                  </label>
-                  <span class="text-red-500">Due in 3 days!</span>
-                </span>
-                <div class="flex gap-8 w-full items-center px-5 p-3">
-                  <img src="../img/cover.png" alt="" class="w-[90px] aspect-square">
-                  <p class="max-w-[300px]">Noli me tangere
-                    Costume photoshoot
-                    Printed in A4 photopaper
-                    Group: 16 members
-                    All must participate
-                    Leader will grade members
-                    Members will grade leader</p>
+                  <img
+                    src="../img/cover.png"
+                    alt=""
+                    class="w-[90px] aspect-square"
+                  />
+                  <p class="max-w-[300px]">
+                    Noli me tangere Costume photoshoot Printed in A4 photopaper
+                    Group: 16 members All must participate Leader will grade
+                    members Members will grade leader
+                  </p>
                 </div>
               </div>
             </div>
           </div>
-          <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="30" height="30" rx="8" fill="#FFC107"/>
-            <path d="M19.2857 14.4643V15.5357C19.2857 15.7567 19.1049 15.9375 18.8839 15.9375H15.9375V18.8839C15.9375 19.1049 15.7567 19.2857 15.5357 19.2857H14.4643C14.2433 19.2857 14.0625 19.1049 14.0625 18.8839V15.9375H11.1161C10.8951 15.9375 10.7143 15.7567 10.7143 15.5357V14.4643C10.7143 14.2433 10.8951 14.0625 11.1161 14.0625H14.0625V11.1161C14.0625 10.8951 14.2433 10.7143 14.4643 10.7143H15.5357C15.7567 10.7143 15.9375 10.8951 15.9375 11.1161V14.0625H18.8839C19.1049 14.0625 19.2857 14.2433 19.2857 14.4643ZM22.5 9.10714V20.8929C22.5 21.7801 21.7801 22.5 20.8929 22.5H9.10714C8.21987 22.5 7.5 21.7801 7.5 20.8929V9.10714C7.5 8.21987 8.21987 7.5 9.10714 7.5H20.8929C21.7801 7.5 22.5 8.21987 22.5 9.10714ZM20.8929 20.692V9.30804C20.8929 9.19754 20.8025 9.10714 20.692 9.10714H9.30804C9.19754 9.10714 9.10714 9.19754 9.10714 9.30804V20.692C9.10714 20.8025 9.19754 20.8929 9.30804 20.8929H20.692C20.8025 20.8929 20.8929 20.8025 20.8929 20.692Z" fill="#F5F5F5"/>
-          </svg>
-        </div>
-        <div class="subject">
-          <p>GNED 04</p>
-          <p>Class: <span class="text-primary">Major</span></p>
-        </div>
-        <div class="subject">
-          <p>GNED 04</p>
-          <p>Class: <span class="text-primary">Major</span></p>
+        
         </div>
 
+
+        </div>
+
+        <div class="subject">
+          <p>GNED 04</p>
+          <p>Class: <span class="text-primary">Major</span></p>
+        </div>
+        <div class="subject">
+          <p>GNED 04</p>
+          <p>Class: <span class="text-primary">Major</span></p>
+        </div> -->
       </main>
     </section>
+    <script src="index.js"></script>
+
   </body>
 </html>
