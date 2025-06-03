@@ -75,7 +75,7 @@
     }
 
     .subject {
-        @apply font-semibold flex justify-between py-[10px] px-[20px] mb-[15px] bg-accent border border-transparent rounded-[14px];
+        @apply font-semibold flex justify-between py-[10px] px-[20px] mb-[15px] bg-accent border items-center border-transparent rounded-[14px];
     }
 
 }

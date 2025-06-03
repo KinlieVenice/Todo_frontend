@@ -1,0 +1,75 @@
+<div id="createSubjModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 hidden">
+    <div class="bg-bg w-full max-w-md p-6 rounded-[8px] shadow-xl relative">
+      <!-- Close button -->
+      <button onclick="document.getElementById('createSubjModal').classList.add('hidden')" class="absolute top-2 right-2 text-gray-400 hover:text-gray-600">
+        &times;
+      </button>
+
+      <h2 class="text-xl font-semibold text-primary mb-4">Create Subject</h2>
+
+      <form id="createSubjectForm" class="space-y-4">
+        <!-- Name -->
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+          <input type="text" name="name" class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" required>
+        </div>
+
+        <!-- Class (Major/Minor) -->
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Class</label>
+          <select name="class_type" class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" required>
+            <option value="">Select</option>
+            <option value="major">Major</option>
+            <option value="minor">Minor</option>
+          </select>
+        </div>
+
+        <!-- Color Options -->
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-2">Color</label>
+          <div class="flex flex-wrap gap-2">
+          <!-- Each label handles a pastel color radio with ring on checked -->
+            <label class="cursor-pointer">
+              <input type="radio" name="color" value="#FFD1DC" class="hidden peer" required>
+              <span class="w-8 h-8 block rounded-full bg-pink-200 peer-checked:ring-2 peer-checked:ring-primary border-2 border-transparent hover:border-primary"></span>
+            </label>
+            <label class="cursor-pointer">
+              <input type="radio" name="color" value="#A0E7E5" class="hidden peer">
+              <span class="w-8 h-8 block rounded-full bg-cyan-200 peer-checked:ring-2 peer-checked:ring-primary border-2 border-transparent hover:border-primary"></span>
+              </label>
+            <label class="cursor-pointer">
+              <input type="radio" name="color" value="#BDB2FF" class="hidden peer">
+              <span class="w-8 h-8 block rounded-full bg-purple-200 peer-checked:ring-2 peer-checked:ring-primary border-2 border-transparent hover:border-primary"></span>
+            </label>
+            <label class="cursor-pointer">
+              <input type="radio" name="color" value="#FFDAC1" class="hidden peer">
+              <span class="w-8 h-8 block rounded-full bg-orange-200 peer-checked:ring-2 peer-checked:ring-primary border-2 border-transparent hover:border-primary"></span>
+            </label>
+            
+          <!-- "Boyish" Pastel Colors -->
+            <label class="cursor-pointer">
+              <input type="radio" name="color" value="#C3F0CA" class="hidden peer">
+              <span class="w-8 h-8 block rounded-full bg-green-200 peer-checked:ring-2 peer-checked:ring-primary border-2 border-transparent hover:border-primary"></span>
+            </label>
+            <label class="cursor-pointer">
+              <input type="radio" name="color" value="#AEC6CF" class="hidden peer">
+              <span class="w-8 h-8 block rounded-full bg-blue-200 peer-checked:ring-2 peer-checked:ring-primary border-2 border-transparent hover:border-primary"></span>
+            </label>
+            <label class="cursor-pointer">
+              <input type="radio" name="color" value="#D5E1DF" class="hidden peer">
+              <span class="w-8 h-8 block rounded-full bg-gray-200 peer-checked:ring-2 peer-checked:ring-primary border-2 border-transparent hover:border-primary"></span>
+            </label>
+            <label class="cursor-pointer">
+              <input type="radio" name="color" value="#B2EBF2" class="hidden peer">
+              <span class="w-8 h-8 block rounded-full bg-teal-200 peer-checked:ring-2 peer-checked:ring-primary border-2 border-transparent hover:border-primary"></span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Submit -->
+        <div class="text-right">
+          <button type="submit" onclick="createSubject()" class="bg-primary text-white px-4 py-2 rounded-md hover:bg-opacity-90">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>

@@ -41,6 +41,7 @@
     --text-4xl--line-height: calc(2.5 / 2.25);
     --text-5xl: 3rem;
     --text-5xl--line-height: 1;
+    --font-weight-light: 300;
     --font-weight-medium: 500;
     --font-weight-semibold: 600;
     --font-weight-bold: 700;
@@ -453,6 +454,14 @@
     border-style: var(--tw-border-style);
     border-width: 2px;
   }
+  .border-5 {
+    border-style: var(--tw-border-style);
+    border-width: 5px;
+  }
+  .border-10 {
+    border-style: var(--tw-border-style);
+    border-width: 10px;
+  }
   .border-gray-300 {
     border-color: var(--color-gray-300);
   }
@@ -546,23 +555,11 @@
   .py-3 {
     padding-block: calc(var(--spacing) * 3);
   }
-  .pb-2 {
-    padding-bottom: calc(var(--spacing) * 2);
-  }
   .pb-5 {
     padding-bottom: calc(var(--spacing) * 5);
   }
   .pb-7 {
     padding-bottom: calc(var(--spacing) * 7);
-  }
-  .pb-10 {
-    padding-bottom: calc(var(--spacing) * 10);
-  }
-  .text-center {
-    text-align: center;
-  }
-  .text-left {
-    text-align: left;
   }
   .text-right {
     text-align: right;
@@ -589,6 +586,9 @@
   }
   .text-accent {
     color: var(--color-accent);
+  }
+  .text-dark {
+    color: var(--color-dark);
   }
   .text-gray-400 {
     color: var(--color-gray-400);
@@ -834,6 +834,7 @@
   .subject {
     margin-bottom: 15px;
     display: flex;
+    align-items: center;
     justify-content: space-between;
     border-radius: 14px;
     border-style: var(--tw-border-style);
