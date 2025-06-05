@@ -53,7 +53,7 @@ const fetchTasks = async (subj_id) => {
 };
 
 // DISPLAYING
-const displaySubjects = async (id) => {
+const displaySubjects = async () => {
   const subjects = await fetchSubjects();
   const subj_div = document.getElementById("subject__div");
 
@@ -298,14 +298,49 @@ const createTask = async (event) => {
 };
 
 
-//  EDITING
+// EDITING
+const editSubject = async () => {
+  const form = document.getElementById("editSubjectForm");
+  const formData = new FormData(form);
 
+  const requiredFields = ["name", "classname", "color"];
+  let isValid = true;
 
+  requiredFields.forEach((fieldName) => {
+    const input = form.querySelector(`[name="${fieldName}"]`);
+    if (!formData.get(fieldName)) {
+      input.classList.add("border-red-500");
+      isValid = false;
+    } else {
+      input.classList.remove("border-red-500");
+    }
+  });
 
+  if (!isValid) {
+    alert("Please fill out all required fields");
+    return;
+  }
+
+  try {
+    const response = await fetch(`${url}/subjects/${currentSubjectId}`, {
+      method: "PATCH",
+      body: formData, // Don't set Content-Type, browser will handle it
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    console.log("Subject Updated:", data);
+    alert(data.response || "Subject successfully updated.");
+  } catch (error) {
+    console.error("Error:", error);
+    alert("Something went wrong.");
+  }
+};
 
 // DELETING
-
-
 // SHOWING MODAL
 
 const showModal = async (event, subjectId, modalName) => {
@@ -315,10 +350,6 @@ const showModal = async (event, subjectId, modalName) => {
   const subjModal = document.getElementById(`${modalName}`);
   subjModal.classList.remove("hidden");
 };
-
-
-
-
 
 displaySubjects();
 
