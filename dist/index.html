@@ -391,7 +391,7 @@
         
             <h2 class="text-xl font-semibold text-primary mb-4">Edit Task</h2>
         
-            <form id="createTaskForm" class="space-y-4" enctype="multipart/form-data">
+            <form id="editTaskForm" class="space-y-4" enctype="multipart/form-data">
               <!-- Name -->
               <div>
                 <label class="block text-sm font-medium text-gray-700 mb-1">Name</label>
@@ -413,12 +413,12 @@
               <!-- Image Upload -->
               <div>
                 <label class="block text-sm font-medium text-gray-700 mb-1">Image</label>
-                <input type="file" name="img_filename" accept="image/*" class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                <input type="file" name="image" accept="image/*" class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
               </div>
         
               <!-- Submit -->
               <div class="text-right">
-                <button type="submit" class="bg-primary text-white px-4 py-2 rounded-md hover:bg-opacity-90">Submit</button>
+                <button onclick="editTask(event)" class="bg-primary text-white px-4 py-2 rounded-md hover:bg-opacity-90">Submit</button>
               </div>
             </form>
           </div>

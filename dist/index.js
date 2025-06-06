@@ -1,9 +1,9 @@
 const url = "http://127.0.0.1:5000";
-let currentSubjectId = null;
+let currentId = null;
 
 
 // FETCHING
-const fetchSubjects = async (id) => {
+const fetchSubjects = async () => {
     try {
         let link = `${url}/subjects`
 
@@ -56,6 +56,7 @@ const fetchTasks = async (subj_id) => {
 const displaySubjects = async () => {
   const subjects = await fetchSubjects();
   const subj_div = document.getElementById("subject__div");
+  subj_div.innerHTML = "";
 
   subjects.forEach(subject => {
       subj_div.insertAdjacentHTML(
@@ -155,7 +156,7 @@ task_div.innerHTML = "";
                 <div class="!bg-primary py-2 px-4 !rounded-t-[12px] flex justify-between items-center">
                   <span class="font-semibold">Deadline: <span>${task.deadline_date}</span> | <span>${task.deadline_time}</span></span>
                   <span class="flex gap-3 items-center">
-                      <svg onclick="event.stopPropagation(); showModal(event, ${task.subject_id}, 'editTaskModal')" width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <svg onclick="event.stopPropagation(); showModal(event, ${task.id}, 'editTaskModal')" width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path d="M10 1.39574C11.08 1.39574 12.08 1.7374 12.8975 2.32074L5.28583 9.93157C5.20624 10.0084 5.14276 10.1004 5.09908 10.2021C5.05541 10.3037 5.03242 10.4131 5.03146 10.5237C5.0305 10.6344 5.05158 10.7441 5.09348 10.8465C5.13538 10.9489 5.19726 11.042 5.2755 11.1202C5.35375 11.1985 5.44679 11.2604 5.5492 11.3023C5.65162 11.3442 5.76135 11.3652 5.872 11.3643C5.98265 11.3633 6.092 11.3403 6.19367 11.2967C6.29534 11.253 6.38729 11.1895 6.46417 11.1099L14.0758 3.49824C14.6784 4.3441 15.0016 5.35717 15 6.39574V14.7291C15 15.1711 14.8244 15.595 14.5118 15.9076C14.1993 16.2201 13.7754 16.3957 13.3333 16.3957H1.66667C1.22464 16.3957 0.800716 16.2201 0.488155 15.9076C0.175595 15.595 0 15.1711 0 14.7291V3.0624C0 2.62038 0.175595 2.19645 0.488155 1.88389C0.800716 1.57133 1.22464 1.39574 1.66667 1.39574H10ZM15.5475 0.848237C15.7037 1.00451 15.7915 1.21643 15.7915 1.4374C15.7915 1.65837 15.7037 1.8703 15.5475 2.02657L14.075 3.49824C13.7505 3.04267 13.3522 2.64442 12.8967 2.3199L14.3683 0.848237C14.5246 0.692011 14.7365 0.604248 14.9575 0.604248C15.1785 0.604248 15.3912 0.692011 15.5475 0.848237Z" fill="white"/>
                       </svg>
                       <svg onclick="event.stopPropagation(); showModal(event, ${task.subject_id}, 'deleteTaskModal')" width="13" height="15" viewBox="0 0 13 15" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -275,7 +276,7 @@ const createTask = async (event) => {
   formData.set("deadline", deadlineFormatted);
 
   try {
-    const response = await fetch(`${url}/subjects/${currentSubjectId}/tasks`, {
+    const response = await fetch(`${url}/subjects/${currentId}/tasks`, {
       method: "POST",
       body: formData,
     });
@@ -290,18 +291,19 @@ const createTask = async (event) => {
     // Close modal, reset form, and refresh tasks
     modal.classList.add("hidden");
     form.reset();
-    displayTasks(currentSubjectId); // Refresh the tasks list
+    displayTasks(currentId); // Refresh the tasks list
   } catch (error) {
     console.error("Error:", error);
     alert("Failed to create task. Please try again.");
   }
 };
 
-
 // EDITING
-const editSubject = async () => {
+const editSubject = async (event) => {
+  event.preventDefault(); 
   const form = document.getElementById("editSubjectForm");
   const formData = new FormData(form);
+  const modal = document.getElementById('editSubjModal')
 
   const requiredFields = ["name", "classname", "color"];
   let isValid = true;
@@ -322,9 +324,9 @@ const editSubject = async () => {
   }
 
   try {
-    const response = await fetch(`${url}/subjects/${currentSubjectId}`, {
+    const response = await fetch(`${url}/subjects/${currentId}`, {
       method: "PATCH",
-      body: formData, // Don't set Content-Type, browser will handle it
+      body: formData,
     });
 
     if (!response.ok) {
@@ -333,20 +335,89 @@ const editSubject = async () => {
 
     const data = await response.json();
     console.log("Subject Updated:", data);
-    alert(data.response || "Subject successfully updated.");
+    // alert(data.response || "Subject successfully updated.");
+    modal.classList.add("hidden");
+    form.reset();
+    displaySubjects(); // Refresh the tasks list
   } catch (error) {
     console.error("Error:", error);
     alert("Something went wrong.");
   }
 };
 
-// DELETING
-// SHOWING MODAL
+const editTask = async (event) => {
+  event.stopPropagation();
+  event.preventDefault();
+  const form = document.getElementById("editTaskForm");
+  const formData = new FormData(form);
+  const modal = document.getElementById("editTaskModal");
 
+  // Validate required fields
+  const requiredFields = ["name", "description", "deadline", "image"];
+  let isValid = true;
+
+  requiredFields.forEach((fieldName) => {
+    const input = form.querySelector(`[name="${fieldName}"]`);
+
+    if (fieldName === "image") {
+      if (!input.files || input.files.length === 0) {
+        input.classList.add("border-red-500");
+        isValid = false;
+      } else {
+        input.classList.remove("border-red-500");
+      }
+      return;
+    }
+
+    if (!formData.get(fieldName)) {
+      input.classList.add("border-red-500");
+      isValid = false;
+    } else {
+      input.classList.remove("border-red-500");
+    }
+  });
+
+  if (!isValid) {
+    alert("Please fill out all required fields");
+    return;
+  }
+
+  let deadlineInput = formData.get("deadline");
+  let deadlineFormatted = deadlineInput.replace("T", " ") + ":00";
+  formData.set("deadline", deadlineFormatted);
+
+  try {
+    const response = await fetch(`${url}/tasks/${currentId}`, {
+      method: "PATCH",
+      body: formData,
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    console.log("Task Created:", data);
+
+    // Close modal, reset form, and refresh tasks
+    modal.classList.add("hidden");
+    form.reset();
+    displayTasks(currentId); // Refresh the tasks list
+  } catch (error) {
+    console.error("Error:", error);
+    alert("Failed to create task. Please try again.");
+  }
+};
+
+
+// DELETING
+
+
+// SHOWING MODAL
 const showModal = async (event, subjectId, modalName) => {
   event.stopPropagation();
   event.preventDefault();
-  currentSubjectId = subjectId;
+  currentId = subjectId;
   const subjModal = document.getElementById(`${modalName}`);
   subjModal.classList.remove("hidden");
 };
