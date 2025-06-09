@@ -159,7 +159,7 @@ task_div.innerHTML = "";
                       <svg onclick="event.stopPropagation(); showModal(event, ${task.id}, 'editTaskModal')" width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path d="M10 1.39574C11.08 1.39574 12.08 1.7374 12.8975 2.32074L5.28583 9.93157C5.20624 10.0084 5.14276 10.1004 5.09908 10.2021C5.05541 10.3037 5.03242 10.4131 5.03146 10.5237C5.0305 10.6344 5.05158 10.7441 5.09348 10.8465C5.13538 10.9489 5.19726 11.042 5.2755 11.1202C5.35375 11.1985 5.44679 11.2604 5.5492 11.3023C5.65162 11.3442 5.76135 11.3652 5.872 11.3643C5.98265 11.3633 6.092 11.3403 6.19367 11.2967C6.29534 11.253 6.38729 11.1895 6.46417 11.1099L14.0758 3.49824C14.6784 4.3441 15.0016 5.35717 15 6.39574V14.7291C15 15.1711 14.8244 15.595 14.5118 15.9076C14.1993 16.2201 13.7754 16.3957 13.3333 16.3957H1.66667C1.22464 16.3957 0.800716 16.2201 0.488155 15.9076C0.175595 15.595 0 15.1711 0 14.7291V3.0624C0 2.62038 0.175595 2.19645 0.488155 1.88389C0.800716 1.57133 1.22464 1.39574 1.66667 1.39574H10ZM15.5475 0.848237C15.7037 1.00451 15.7915 1.21643 15.7915 1.4374C15.7915 1.65837 15.7037 1.8703 15.5475 2.02657L14.075 3.49824C13.7505 3.04267 13.3522 2.64442 12.8967 2.3199L14.3683 0.848237C14.5246 0.692011 14.7365 0.604248 14.9575 0.604248C15.1785 0.604248 15.3912 0.692011 15.5475 0.848237Z" fill="white"/>
                       </svg>
-                      <svg onclick="event.stopPropagation(); showModal(event, ${task.subject_id}, 'deleteTaskModal')" width="13" height="15" viewBox="0 0 13 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <svg onclick="event.stopPropagation(); showModal(event, ${task.id}, 'deleteTaskModal')" width="13" height="15" viewBox="0 0 13 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path d="M1.62484 13.3333C1.62484 14.25 2.37484 15 3.2915 15H9.95817C10.8748 15 11.6248 14.25 11.6248 13.3333V5C11.6248 4.08333 10.8748 3.33333 9.95817 3.33333H3.2915C2.37484 3.33333 1.62484 4.08333 1.62484 5V13.3333ZM11.6248 0.833333H9.5415L8.94984 0.241667C8.79984 0.0916666 8.58317 0 8.3665 0H4.88317C4.6665 0 4.44984 0.0916666 4.29984 0.241667L3.70817 0.833333H1.62484C1.1665 0.833333 0.791504 1.20833 0.791504 1.66667C0.791504 2.125 1.1665 2.5 1.62484 2.5H11.6248C12.0832 2.5 12.4582 2.125 12.4582 1.66667C12.4582 1.20833 12.0832 0.833333 11.6248 0.833333Z"
                           fill="white"/>
                       </svg>
@@ -411,7 +411,55 @@ const editTask = async (event) => {
 
 
 // DELETING
+const deleteSubject = async (event) => {
+  const modal = document.getElementById("deleteSubjModal");
+  try {
+    let link = `${url}/subjects/${currentId}`;
 
+    const response = await fetch(link, {
+      method: "DELETE",
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    console.log("Delete subjects:", data);
+    modal.classList.add("hidden");
+    displaySubjects();
+    return data;
+  } catch (error) {
+    console.error("Error deleting subject:", error);
+    return [];
+  }
+}
+
+const deleteTask = async (event) => {
+  event.stopPropagation();
+  event.preventDefault();
+  const modal = document.getElementById("deleteTaskModal");
+  try {
+    let link = `${url}/tasks/${currentId}`;
+
+    const response = await fetch(link, {
+      method: "DELETE",
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    console.log("Delete tasks:", data);
+    modal.classList.add("hidden");
+    displayTasks(event);
+    return data;
+  } catch (error) {
+    console.error("Error deleting task:", error);
+    return [];
+  }
+};
 
 // SHOWING MODAL
 const showModal = async (event, subjectId, modalName) => {
