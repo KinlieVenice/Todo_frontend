@@ -138,7 +138,7 @@
           <div class="flex gap-10 items-center">
             <h2>My Tasks</h2>
             <span class="flex gap-[20px]">
-              <label class="inline-flex items-center cursor-pointer">
+              <!-- <label class="inline-flex items-center cursor-pointer">
                 <input
                   type="radio"
                   name="option"
@@ -147,7 +147,7 @@
                 />
                 <span class="checkbox"></span>
                 <span class="ml-2 text-lg">All</span>
-              </label>
+              </label> -->
               <label class="inline-flex items-center cursor-pointer">
                 <input
                   type="radio"
@@ -156,7 +156,7 @@
                   class="peer sr-only"
                 />
                 <span class="checkbox"></span>
-                <span class="ml-2 text-lg">Per Subject</span>
+                <span class="ml-2 text-lg">All Subject</span>
               </label>
               <label class="inline-flex items-center cursor-pointer">
                 <input
@@ -438,7 +438,7 @@
               <!-- Submit -->
               <div class="flex justify-end gap-3">
                 <button onclick="deleteTask(event)" class="bg-primary text-white px-4 py-2 rounded-md hover:bg-opacity-90">Yes</button>
-                <button  class="bg-primary text-white px-4 py-2 rounded-md hover:bg-opacity-90">Cancel</button>
+                <button onclick="document.getElementById('deleteTaskModal').classList.add('hidden')" class="bg-primary text-white px-4 py-2 rounded-md hover:bg-opacity-90">Cancel</button>
               </div>
             </form>
           </div>
@@ -458,7 +458,7 @@
               <!-- Submit -->
               <div class="flex justify-end gap-3">
                 <button onclick="deleteSubject(event)" class="bg-primary text-white px-4 py-2 rounded-md hover:bg-opacity-90">Yes</button>
-                <button  class="bg-primary text-white px-4 py-2 rounded-md hover:bg-opacity-90">Cancel</button>
+                <button onclick="document.getElementById('deleteSubjModal').classList.add('hidden')"  class="bg-primary text-white px-4 py-2 rounded-md hover:bg-opacity-90">Cancel</button>
               </div>
             </form>
           </div>
