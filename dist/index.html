@@ -68,7 +68,22 @@
             </svg>
             <p>My Tasks</p>
           </div>
-          <div class="tabs-indent">
+          <div class="tabs-indent" onclick="displaySubjects()">
+            <svg
+              width="26"
+              height="26"
+              viewBox="0 0 26 26"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M15.4375 2.4375C15.4375 3.78371 14.3462 4.875 13 4.875C11.6538 4.875 10.5625 3.78371 10.5625 2.4375C10.5625 1.09129 11.6538 0 13 0C14.3462 0 15.4375 1.09129 15.4375 2.4375ZM13 21.125C11.6538 21.125 10.5625 22.2163 10.5625 23.5625C10.5625 24.9087 11.6538 26 13 26C14.3462 26 15.4375 24.9087 15.4375 23.5625C15.4375 22.2163 14.3462 21.125 13 21.125ZM23.5625 10.5625C22.2163 10.5625 21.125 11.6538 21.125 13C21.125 14.3462 22.2163 15.4375 23.5625 15.4375C24.9087 15.4375 26 14.3462 26 13C26 11.6538 24.9087 10.5625 23.5625 10.5625ZM4.875 13C4.875 11.6538 3.78371 10.5625 2.4375 10.5625C1.09129 10.5625 0 11.6538 0 13C0 14.3462 1.09129 15.4375 2.4375 15.4375C3.78371 15.4375 4.875 14.3462 4.875 13ZM5.5312 18.0313C4.18498 18.0313 3.0937 19.1226 3.0937 20.4688C3.0937 21.815 4.18498 22.9063 5.5312 22.9063C6.87741 22.9063 7.9687 21.815 7.9687 20.4688C7.9687 19.1226 6.87736 18.0313 5.5312 18.0313ZM20.4688 18.0313C19.1226 18.0313 18.0313 19.1226 18.0313 20.4688C18.0313 21.815 19.1226 22.9063 20.4688 22.9063C21.815 22.9063 22.9063 21.815 22.9063 20.4688C22.9063 19.1226 21.815 18.0313 20.4688 18.0313ZM5.5312 3.0937C4.18498 3.0937 3.0937 4.18498 3.0937 5.5312C3.0937 6.87741 4.18498 7.9687 5.5312 7.9687C6.87741 7.9687 7.9687 6.87741 7.9687 5.5312C7.9687 4.18498 6.87736 3.0937 5.5312 3.0937Z"
+                fill="#81C784"
+              />
+            </svg>
+            <p>Pending</p>
+          </div>
+          <div class="tabs-indent" onclick="displayDone()">
             <svg
               width="26"
               height="26"
@@ -85,21 +100,7 @@
             </svg>
             <p>Done</p>
           </div>
-          <div class="tabs-indent">
-            <svg
-              width="26"
-              height="26"
-              viewBox="0 0 26 26"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M15.4375 2.4375C15.4375 3.78371 14.3462 4.875 13 4.875C11.6538 4.875 10.5625 3.78371 10.5625 2.4375C10.5625 1.09129 11.6538 0 13 0C14.3462 0 15.4375 1.09129 15.4375 2.4375ZM13 21.125C11.6538 21.125 10.5625 22.2163 10.5625 23.5625C10.5625 24.9087 11.6538 26 13 26C14.3462 26 15.4375 24.9087 15.4375 23.5625C15.4375 22.2163 14.3462 21.125 13 21.125ZM23.5625 10.5625C22.2163 10.5625 21.125 11.6538 21.125 13C21.125 14.3462 22.2163 15.4375 23.5625 15.4375C24.9087 15.4375 26 14.3462 26 13C26 11.6538 24.9087 10.5625 23.5625 10.5625ZM4.875 13C4.875 11.6538 3.78371 10.5625 2.4375 10.5625C1.09129 10.5625 0 11.6538 0 13C0 14.3462 1.09129 15.4375 2.4375 15.4375C3.78371 15.4375 4.875 14.3462 4.875 13ZM5.5312 18.0313C4.18498 18.0313 3.0937 19.1226 3.0937 20.4688C3.0937 21.815 4.18498 22.9063 5.5312 22.9063C6.87741 22.9063 7.9687 21.815 7.9687 20.4688C7.9687 19.1226 6.87736 18.0313 5.5312 18.0313ZM20.4688 18.0313C19.1226 18.0313 18.0313 19.1226 18.0313 20.4688C18.0313 21.815 19.1226 22.9063 20.4688 22.9063C21.815 22.9063 22.9063 21.815 22.9063 20.4688C22.9063 19.1226 21.815 18.0313 20.4688 18.0313ZM5.5312 3.0937C4.18498 3.0937 3.0937 4.18498 3.0937 5.5312C3.0937 6.87741 4.18498 7.9687 5.5312 7.9687C6.87741 7.9687 7.9687 6.87741 7.9687 5.5312C7.9687 4.18498 6.87736 3.0937 5.5312 3.0937Z"
-                fill="#81C784"
-              />
-            </svg>
-            <p>Pending</p>
-          </div>
+
           <div class="tabs">
             <svg
               width="26"
@@ -133,7 +134,7 @@
         </div>
       </div>
 
-      <main class="flex-1 w-full h-full mx-auto px-30 max-w-[3200px]">
+      <main class="flex-1 w-full h-full mx-auto px-30 max-w-[3200px]" id="main">
         <div class="main__label flex justify-between w-full items-center pb-5">
           <div class="flex gap-10 items-center">
             <h2>My Tasks</h2>
@@ -148,17 +149,18 @@
                 <span class="checkbox"></span>
                 <span class="ml-2 text-lg">All</span>
               </label> -->
-              <label class="inline-flex items-center cursor-pointer">
+              <label class="inline-flex items-center cursor-pointer" onclick="displaySubjects()">
                 <input
                   type="radio"
                   name="option"
                   value="per-subj"
                   class="peer sr-only"
+                  checked
                 />
                 <span class="checkbox"></span>
                 <span class="ml-2 text-lg">All Subject</span>
               </label>
-              <label class="inline-flex items-center cursor-pointer">
+              <label class="inline-flex items-center cursor-pointer" onclick="displayMajor()">
                 <input
                   type="radio"
                   name="option"
@@ -168,7 +170,7 @@
                 <span class="checkbox"></span>
                 <span class="ml-2 text-lg">Major</span>
               </label>
-              <label class="inline-flex items-center cursor-pointer">
+              <label class="inline-flex items-center cursor-pointer" onclick="displayMinor()">
                 <input
                   type="radio"
                   name="option"
@@ -459,6 +461,26 @@
               <div class="flex justify-end gap-3">
                 <button onclick="deleteSubject(event)" class="bg-primary text-white px-4 py-2 rounded-md hover:bg-opacity-90">Yes</button>
                 <button onclick="document.getElementById('deleteSubjModal').classList.add('hidden')"  class="bg-primary text-white px-4 py-2 rounded-md hover:bg-opacity-90">Cancel</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div id="updateStatusModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 hidden">
+          <div class="bg-bg w-full max-w-md p-6 rounded-[8px] shadow-xl relative">
+            <!-- Close button -->
+            <button onclick="document.getElementById('updateStatusModal').classList.add('hidden')" class="absolute top-2 right-2 text-gray-400 hover:text-gray-600">
+              &times;
+            </button>
+        
+            <h2 class="text-xl font-semibold text-primary mb-4">Mark as Done</h2>
+        
+            <p class="pb-7">Are you sure you want to mark this task as done?</p>
+        
+              <!-- Submit -->
+              <div class="flex justify-end gap-3">
+                <button onclick="updateStatus(event)" class="bg-primary text-white px-4 py-2 rounded-md hover:bg-opacity-90">Yes</button>
+                <button onclick="document.getElementById('updateStatusModal').classList.add('hidden')" class="bg-primary text-white px-4 py-2 rounded-md hover:bg-opacity-90">Cancel</button>
               </div>
             </form>
           </div>
