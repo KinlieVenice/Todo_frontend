@@ -225,10 +225,12 @@ task_div.innerHTML = "";
 // Re-insert tasks only if showing
   tasks.forEach((task) => {
     const descriptionHtml = task.description.replace(/\n/g, "<br>");
+    const rgbaColor = hexToRgba(task.subject_color, 0.3);
+
     task_div.insertAdjacentHTML(
       "beforeend",
       ` <div class="indiv-task w-[500px] border bg-bg border-transparent !rounded-[12px]">
-                <div class="!bg-primary py-2 px-4 !rounded-t-[12px] flex justify-between items-center">
+                <div class="py-2 px-4 !rounded-t-[12px] flex justify-between items-center" style="background-color: ${rgbaColor}">
                   <span class="font-semibold">Deadline: <span>${task.deadline_date}</span> | <span>${task.deadline_time}</span></span>
                   <span class="flex gap-3 items-center">
                       <svg onclick="event.stopPropagation(); showModal(event, ${task.id}, 'editTaskModal')" width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -274,13 +276,14 @@ const displayDone = async () => {
   tasks.forEach((task) => {
     const descriptionHtml = task.description.replace(/\n/g, "<br>");
 
+
     // Create a div element
     const taskDiv = document.createElement("div");
     taskDiv.className =
       "indiv-task w-[500px] border bg-bg border-transparent !rounded-[12px]";
 
     taskDiv.innerHTML = `
-      <div class="!bg-primary py-2 px-4 !rounded-t-[12px] flex justify-between items-center">
+      <div class=" py-2 px-4 !rounded-t-[12px] flex justify-between items-center" style="background-color: ${task.subject_color}">
                     <span class="font-semibold">Deadline: <span>${task.deadline_date}</span> | <span>${task.deadline_time}</span></span>
                     <span class="flex gap-3 items-center">
                         <svg onclick="event.stopPropagation(); showModal(event, ${task.id}, 'editTaskModal')" width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -293,13 +296,14 @@ const displayDone = async () => {
                     </span>
                   </div>
                   <div class="p-5">
+                    <h5 class="capitalize pb-2">Subject: ${task.subject_name}, ${task.subject_class}</h5>
                     <span class="flex justify-between items-center">
                       <label class="inline-flex items-center cursor-pointer">
-                        <input type="checkbox" name="done" value="${task.id}" class="peer sr-only" onclick="showModal(event, ${task.id}, 'updateStatusModal')"/>
+                        <input type="checkbox" name="done" value="${task.id}" class="peer sr-only" onclick="showModal(event, ${task.id}, 'reupdateStatusModal')" checked/>
                         <span class="checkbox"></span>
                         <h3 class="ml-2">${task.name}</h3>
                       </label>
-                      <span class="text-red-500">${task.due_text}</span>
+                      <span class="text-green-500">Done!</span>
                     </span>
                     <div class="flex gap-8 w-full items-center px-5 p-3">
                       <img src="${url}/images/${task.img_filename}" alt="" class="w-[90px] aspect-square object-cover"/>
@@ -776,6 +780,28 @@ const updateStatus = async (event) => {
   }
 };
 
+const reupdateStatus = async (event) => {
+  try {
+    const response = await fetch(`${url}/tasks/undone/${currentId}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ is_done: 0 }),
+    });
+
+    if (response.ok) {
+      console.log("Task updated successfully.");
+      document.getElementById("reupdateStatusModal").classList.add("hidden");
+      location.reload();
+    } else {
+      console.error("Failed to update task.");
+    }
+  } catch (err) {
+    console.error("Error:", err);
+  }
+};
+
 // SHOWING MODAL
 const showModal = async (event, id, modalName) => {
   event.stopPropagation();
@@ -784,6 +810,22 @@ const showModal = async (event, id, modalName) => {
   const subjModal = document.getElementById(`${modalName}`);
   subjModal.classList.remove("hidden");
 };
+
+
+function hexToRgba(hex, opacity) {
+  hex = hex.replace("#", "");
+  if (hex.length === 3) {
+    hex = hex
+      .split("")
+      .map((c) => c + c)
+      .join("");
+  }
+  const r = parseInt(hex.substring(0, 2), 16);
+  const g = parseInt(hex.substring(2, 4), 16);
+  const b = parseInt(hex.substring(4, 6), 16);
+  return `rgba(${r}, ${g}, ${b}, ${opacity})`;
+}
+
 
 displaySubjects();
 
