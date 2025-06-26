@@ -138,7 +138,7 @@ const displaySubjects = async () => {
       `<div class="subject" style="background-color: ${subject.color}" id="subject_${subject.id}" onclick="displayTasks(${subject.id})">
             <span class="">
                 <p class="capitalize">${subject.name}</p>
-                <p class="text-sm font-medium">Class: <span class="text-dark underline capitalize">${subject.class}</span></p>
+                <p class="text-sm font-medium">Class: <span class="text-dark italic capitalize">${subject.class}</span></p>
             </span>
             <span class="flex gap-5">
                 <svg onclick="event.stopPropagation(); showModal(event, ${subject.id},'createTaskModal')" width="20" height="20" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
