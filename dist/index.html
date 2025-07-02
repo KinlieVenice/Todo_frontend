@@ -198,32 +198,7 @@
                 fill="#F5F5F5"
               />
             </svg>
-            <svg onclick="document.getElementById('editSubjModal').classList.remove('hidden')"
-              width="30"
-              height="31"
-              viewBox="0 0 30 31"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <rect y="0.5" width="30" height="30" rx="8" fill="#4CAF50" />
-              <path
-                d="M17.5 7.95811C18.58 7.95811 19.58 8.29978 20.3975 8.88311L12.7858 16.4939C12.7062 16.5708 12.6428 16.6628 12.5991 16.7644C12.5554 16.8661 12.5324 16.9755 12.5315 17.0861C12.5305 17.1968 12.5516 17.3065 12.5935 17.4089C12.6354 17.5113 12.6973 17.6044 12.7755 17.6826C12.8537 17.7609 12.9468 17.8227 13.0492 17.8646C13.1516 17.9065 13.2614 17.9276 13.372 17.9267C13.4827 17.9257 13.592 17.9027 13.6937 17.859C13.7953 17.8154 13.8873 17.7519 13.9642 17.6723L21.5758 10.0606C22.1784 10.9065 22.5016 11.9196 22.5 12.9581V21.2914C22.5 21.7335 22.3244 22.1574 22.0118 22.47C21.6993 22.7825 21.2754 22.9581 20.8333 22.9581H9.16667C8.72464 22.9581 8.30072 22.7825 7.98816 22.47C7.67559 22.1574 7.5 21.7335 7.5 21.2914V9.62478C7.5 9.18275 7.67559 8.75883 7.98816 8.44627C8.30072 8.13371 8.72464 7.95811 9.16667 7.95811H17.5ZM23.0475 7.41061C23.2037 7.56689 23.2915 7.77881 23.2915 7.99978C23.2915 8.22075 23.2037 8.43267 23.0475 8.58895L21.575 10.0606C21.2505 9.60504 20.8522 9.2068 20.3967 8.88228L21.8683 7.41061C22.0246 7.25439 22.2365 7.16663 22.4575 7.16663C22.6785 7.16663 22.8912 7.25439 23.0475 7.41061Z"
-                fill="white"
-              />
-            </svg>
-            <svg onclick="document.getElementById('deleteSubjModal').classList.remove('hidden')"
-              width="30"
-              height="31"
-              viewBox="0 0 30 31"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <rect y="0.5" width="30" height="30" rx="8" fill="#FF3B30" />
-              <path
-                d="M9.99984 21.3333C9.99984 22.25 10.7498 23 11.6665 23H18.3332C19.2498 23 19.9998 22.25 19.9998 21.3333V13C19.9998 12.0833 19.2498 11.3333 18.3332 11.3333H11.6665C10.7498 11.3333 9.99984 12.0833 9.99984 13V21.3333ZM19.9998 8.83333H17.9165L17.3248 8.24167C17.1748 8.09167 16.9582 8 16.7415 8H13.2582C13.0415 8 12.8248 8.09167 12.6748 8.24167L12.0832 8.83333H9.99984C9.5415 8.83333 9.1665 9.20833 9.1665 9.66667C9.1665 10.125 9.5415 10.5 9.99984 10.5H19.9998C20.4582 10.5 20.8332 10.125 20.8332 9.66667C20.8332 9.20833 20.4582 8.83333 19.9998 8.83333Z"
-                fill="white"
-              />
-            </svg>
+
           </div>
         </div>
 
@@ -232,7 +207,7 @@
         </div>
 
         <!-- Modal -->
-        <div id="createSubjModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 hidden">
+        <div id="createSubjModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 hidden">
           <div class="bg-bg w-full max-w-md p-6 rounded-[8px] shadow-xl relative">
             <!-- Close button -->
             <button onclick="document.getElementById('createSubjModal').classList.add('hidden')" class="absolute top-2 right-2 text-gray-400 hover:text-gray-600">
@@ -302,13 +277,13 @@
 
               <!-- Submit -->
               <div class="text-right">
-                <button onclick="createSubject()" class="bg-primary text-white px-4 py-2 rounded-md hover:bg-opacity-90">Submit</button>
+                <button onclick="createSubject(event)" class="bg-primary text-white px-4 py-2 rounded-md hover:bg-opacity-90">Submit</button>
               </div>
             </form>
           </div>
         </div>
 
-        <div id="editSubjModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 hidden">
+        <div id="editSubjModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 hidden">
           <div class="bg-bg w-full max-w-md p-6 rounded-[8px] shadow-xl relative">
             <!-- Close button -->
             <button onclick="document.getElementById('editSubjModal').classList.add('hidden')" class="absolute top-2 right-2 text-gray-400 hover:text-gray-600">
@@ -384,7 +359,7 @@
           </div>
         </div>
 
-        <div id="editTaskModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 hidden">
+        <div id="editTaskModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 hidden">
           <div class="bg-bg w-full max-w-md p-6 rounded-[8px] shadow-xl relative">
             <!-- Close button -->
             <button onclick="document.getElementById('editTaskModal').classList.add('hidden')" class="absolute top-2 right-2 text-gray-400 hover:text-gray-600">
@@ -408,14 +383,20 @@
         
               <!-- Deadline -->
               <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1">Deadline (YYYY-MM-DD HH:MM:SS)</label>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Deadline</label>
                 <input type="datetime-local" name="deadline" class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" required>
               </div>
         
+              <!-- Existing Image Preview -->
+              <div id="existingImageWrapper" class="mb-2">
+                <p class="text-sm text-gray-600">Current Image:</p>
+                <img id="existingImagePreview" src="" alt="Current Image" class="w-32 h-32 object-cover rounded border" />
+              </div>
+
               <!-- Image Upload -->
               <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1">Image</label>
-                <input type="file" name="image" accept="image/*" class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                <label class="block text-sm font-medium text-gray-700 mb-1">Change Image (optional)</label>
+                <input type="file" name="image" accept="image/*" class="w-full p-2 border border-gray-300 rounded-md">
               </div>
         
               <!-- Submit -->
@@ -426,7 +407,7 @@
           </div>
         </div>
 
-        <div id="deleteTaskModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 hidden">
+        <div id="deleteTaskModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 hidden">
           <div class="bg-bg w-full max-w-md p-6 rounded-[8px] shadow-xl relative">
             <!-- Close button -->
             <button onclick="document.getElementById('deleteTaskModal').classList.add('hidden')" class="absolute top-2 right-2 text-gray-400 hover:text-gray-600">
@@ -446,7 +427,7 @@
           </div>
         </div>
         
-        <div id="deleteSubjModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 hidden">
+        <div id="deleteSubjModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 hidden">
           <div class="bg-bg w-full max-w-md p-6 rounded-[8px] shadow-xl relative">
             <!-- Close button -->
             <button onclick="document.getElementById('deleteSubjModal').classList.add('hidden')" class="absolute top-2 right-2 text-gray-400 hover:text-gray-600">
@@ -466,7 +447,7 @@
           </div>
         </div>
 
-        <div id="updateStatusModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 hidden">
+        <div id="updateStatusModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 hidden">
           <div class="bg-bg w-full max-w-md p-6 rounded-[8px] shadow-xl relative">
             <!-- Close button -->
             <button onclick="document.getElementById('updateStatusModal').classList.add('hidden')" class="absolute top-2 right-2 text-gray-400 hover:text-gray-600">
@@ -486,7 +467,7 @@
           </div>
         </div>
 
-        <div id="reupdateStatusModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 hidden">
+        <div id="reupdateStatusModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 hidden">
           <div class="bg-bg w-full max-w-md p-6 rounded-[8px] shadow-xl relative">
             <!-- Close button -->
             <button onclick="document.getElementById('reupdateStatusModal').classList.add('hidden')" class="absolute top-2 right-2 text-gray-400 hover:text-gray-600">

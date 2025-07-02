@@ -2,17 +2,16 @@ const url = "http://127.0.0.1:5000";
 let currentId = null;
 
 // REGISTER
-const registerUser = async () => {
-  const username = document.getElementById("username").value;
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
-  const confirm_password = document.getElementById("confirm_password").value;
+const registerUser = async (e) => {
+  e.preventDefault();
+  const form = document.getElementById("registerForm");
+  const formData = new FormData(form);
   const responseDiv = document.getElementById("response");
 
   const res = await fetch(`${url}/api/register`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ username, email, password, confirm_password }),
+    body: formData,
+    // DO NOT set Content-Type header manually, browser will handle it
   });
 
   const data = await res.json();
