@@ -220,8 +220,11 @@ const displaySubjects = async () => {
           <div id="tasks-maindiv-${subject.id}" class="tasks gap-5 w-full hidden">
           <div id="task-div-${subject.id}" class="justify-center flex flex-wrap gap-x-4 gap-y-2 w-full mb-10">
           </div>
+
         </div>`
       );
+
+      
 
       const tasks = await fetchTasks(subject.id);
 
@@ -456,7 +459,7 @@ const displayUser = async (id) => {
   headerDiv.insertAdjacentHTML(
     "afterbegin",
     ` <div
-        class="cover_img bg-cover bg-center bg-no-repeat h-[160px] rounded-bl-[50px] rounded-br-[50px]"
+        class="cover_img bg-cover bg-center bg-no-repeat h-[200px] "
         style="background-image: url('${url}/images/${user.header}')"
       ></div>
       <img
