@@ -5,54 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ta-Da!</title>
     <link rel="stylesheet" href="./output.css" />
+    <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
   </head>
-  <body class="">
-    <header class="header shadow-below py-3 px-10 bg-bg z-10">
+  <body>
+    <header class="header sticky top-0 shadow-below py-3 px-10 bg-bg z-10">
       <div class="header__wrapper flex justify-between items-center">
         <h2><span class="text-primary">Ta</span>-Da!</h2>
-        <div class="flex gap-x-[15px] items-center">
-          <svg
-            width="30"
-            height="31"
-            viewBox="0 0 30 31"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <rect y="0.5" width="30" height="30" rx="8" fill="#4CAF50" />
-            <path
-              d="M17.0913 22.1078C17.0913 22.2118 17.0509 22.3116 16.9791 22.3851C16.9073 22.4586 16.8099 22.5 16.7083 22.5H12.6226C12.521 22.5 12.4236 22.4586 12.3518 22.3851C12.2799 22.3116 12.2396 22.2118 12.2396 22.1078C12.2396 22.0038 12.2799 21.904 12.3518 21.8305C12.4236 21.757 12.521 21.7156 12.6226 21.7156H16.7083C16.8099 21.7156 16.9073 21.757 16.9791 21.8305C17.0509 21.904 17.0913 22.0038 17.0913 22.1078ZM20.5456 19.9509C20.4681 20.0906 20.3558 20.2066 20.22 20.287C20.0842 20.3674 19.93 20.4093 19.7732 20.4085H9.55836C9.40126 20.4081 9.24702 20.3654 9.11119 20.2846C8.97536 20.2038 8.86274 20.0877 8.78467 19.9481C8.7066 19.8086 8.66584 19.6504 8.66651 19.4895C8.66718 19.3287 8.70924 19.1709 8.78847 19.032C9.14915 18.3954 9.68604 16.6006 9.68604 14.2647C9.68604 12.9126 10.2107 11.6159 11.1445 10.6598C12.0783 9.70374 13.3448 9.16663 14.6654 9.16663C15.9861 9.16663 17.2526 9.70374 18.1864 10.6598C19.1202 11.6159 19.6448 12.9126 19.6448 14.2647C19.6448 16.6 20.1824 18.3954 20.5437 19.032C20.6238 19.1712 20.6662 19.3297 20.6665 19.4912C20.6668 19.6527 20.6251 19.8114 20.5456 19.9509ZM19.881 19.4281C19.3978 18.5784 18.8788 16.5967 18.8788 14.2647C18.8788 13.1206 18.4349 12.0234 17.6447 11.2144C16.8546 10.4054 15.7829 9.95094 14.6654 9.95094C13.548 9.95094 12.4763 10.4054 11.6862 11.2144C10.896 12.0234 10.4521 13.1206 10.4521 14.2647C10.4521 16.5973 9.93245 18.5784 9.4492 19.4281C9.43799 19.4479 9.43209 19.4705 9.43209 19.4934C9.43209 19.5164 9.43799 19.5389 9.4492 19.5588C9.45971 19.5788 9.47539 19.5955 9.49453 19.607C9.51366 19.6185 9.53552 19.6245 9.55772 19.6241H19.7725C19.7947 19.6245 19.8166 19.6185 19.8357 19.607C19.8549 19.5955 19.8705 19.5788 19.881 19.5588C19.8923 19.5389 19.8982 19.5164 19.8982 19.4934C19.8982 19.4705 19.8923 19.4479 19.881 19.4281Z"
-              fill="white"
-            />
+        <div class="hidden gap-x-[15px] items-center lg:flex">
+          <svg onclick="logout()" width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="34" height="34" rx="8" fill="#4CAF50"/>
+            <path d="M24.7983 15.6953L22.7535 13.6505C22.5805 13.4775 22.3285 13.4101 22.0924 13.4733C21.8562 13.5366 21.6717 13.7211 21.6084 13.9573C21.5452 14.1934 21.6126 14.4456 21.7855 14.6184L22.6717 15.4977H18.8614C18.6179 15.4977 18.3928 15.6276 18.271 15.8385C18.1492 16.0494 18.1492 16.3093 18.271 16.5202C18.3928 16.7311 18.6179 16.861 18.8614 16.861H22.6717L21.7855 17.7402C21.6126 17.9132 21.5451 18.1652 21.6084 18.4014C21.6716 18.6375 21.8562 18.822 22.0924 18.8853C22.3285 18.9486 22.5805 18.8811 22.7535 18.7082L24.7983 16.6635V16.6633C24.9274 16.5354 24.9999 16.3611 24.9999 16.1794C24.9999 15.9976 24.9274 15.8234 24.7983 15.6954V15.6953Z" fill="white"/>
+            <path d="M21.5874 20.2694C21.4068 20.2694 21.2333 20.3411 21.1054 20.4689C20.9777 20.5968 20.9059 20.7701 20.9059 20.9509V22.9957H17.4978V12.7713C17.4966 12.5434 17.3814 12.3311 17.191 12.2057L12.9308 9.36331H20.906V11.4081C20.906 11.6516 21.0359 11.8767 21.2468 11.9985C21.4577 12.1203 21.7176 12.1203 21.9285 11.9985C22.1394 11.8767 22.2693 11.6516 22.2693 11.4081V8.68155C22.2693 8.50077 22.1974 8.32742 22.0695 8.19956C21.9418 8.07188 21.7683 8 21.5875 8H10.6817C10.5009 8 10.3276 8.07188 10.1997 8.19956C10.0719 8.32741 10 8.50076 10 8.68155V22.314C10.0012 22.542 10.1164 22.7544 10.3068 22.8797L16.4416 26.9695C16.5422 27.0346 16.6582 27.072 16.7779 27.0781C16.8975 27.084 17.0167 27.0583 17.1233 27.0037C17.2346 26.9475 17.3284 26.862 17.3945 26.7561C17.4607 26.6504 17.4965 26.5284 17.4982 26.4038V24.3588H21.588H21.5878C21.7686 24.3588 21.9421 24.2871 22.0698 24.1593C22.1977 24.0314 22.2696 23.8581 22.2696 23.6773V20.9508C22.2696 20.77 22.1977 20.5966 22.0698 20.4688C21.9421 20.3409 21.7686 20.2692 21.5878 20.2692L21.5874 20.2694ZM16.1345 25.1291L11.3631 21.9458V9.95595L16.1345 13.1391V25.1291Z" fill="white"/>
           </svg>
-          <span>
-            <h5>Tuesday</h5>
-            <h5 class="text-accent">20/05/2025</h5>
-          </span>
+            
+          <button onclick="logout()"><h4>Logout</h4></button>
+        </div>
+        <div id="toggle_menu" class="lg:hidden relative w-6 h-[15px]  cursor-pointer transition-transform duration-500 ease-in-out" onclick="toggleMenu()">
+          <span class="block absolute w-6 h-[3px] bg-dark rounded-full opacity-100  transition-all duration-200 ease-in-out"></span>
+          <span class="block absolute w-6 h-[3px] bg-dark rounded-full opacity-100  transition-all duration-200 ease-in-out"></span>
+          <span class="block absolute w-6 h-[3px] bg-dark rounded-full opacity-100  transition-all duration-200 ease-in-out"></span>
+          <span class="block absolute w-6 h-[3px] bg-dark rounded-full opacity-100  transition-all duration-200 ease-in-out"></span>
         </div>
       </div>
     </header>
 
-    <section id="header_pic" class="cover relative">
-      <!-- <div
-        class="cover_img bg-[url('../img/cover.png')] bg-cover bg-center bg-no-repeat h-[160px] border border-primary rounded-bl-[50px] rounded-br-[50px]"
-      ></div>
-      <img
-        src="../img/profile.jpg"
-        class="absolute -bottom-[40%] ml-[115px] border border-light rounded-full w-[130px] aspect-square object-cover"
-        alt=""
-      /> -->
+    <section id="sidePanel" class="side_panel bg-light z-50 h-full">
+      <div id="side_panel" class="lg:hidden w-[280px] md:w-[350px] min-h-[100px] flex flex-col justify-between ">
+      </div>
+      
     </section>
 
-    <section class="flex mt-[75px]">
-      <div id="side_bar" class="side-bar w-[350px] p-2">
+    <div class="backdrop"></div>
 
-      </div>
 
-      <main class="flex-1 w-full h-full mx-auto px-30 max-w-[3200px]" id="main">
-        <div class="main__label flex justify-between w-full items-center pb-5">
-          <div class="flex gap-10 items-center">
-            <h2>My Tasks</h2>
-            <span class="flex gap-[20px]">
+    <section id="header_pic" class="hidden lg:block cover relative ">
+
+    </section>
+
+    <section class="flex ">
+      <aside id="side_bar" class="mt-[65px] hidden lg:block side-bar w-[350px] p-2">
+
+      </aside>
+
+      <main class="my-6 md:my-10 flex-1 w-full h-full mx-auto px-15 lg:px-30 max-w-[3200px]" id="main">
+        <div id="task_labels" class="main__label flex justify-between w-full items-center pb-5">
+          <div  class="flex gap-5 items-center">
+            <h2 id="task_title">My Tasks</h2>
+            <span class="flex gap-[14px] " id="task_filters">
               <!-- <label class="inline-flex items-center cursor-pointer">
                 <input
                   type="radio"
@@ -72,7 +73,7 @@
                   checked
                 />
                 <span class="checkbox"></span>
-                <span class="ml-2 text-lg">All Subject</span>
+                <span class="ml-2 text-lg"><p>All Subject</p></span>
               </label>
               <label class="inline-flex items-center cursor-pointer" onclick="displayMajor()">
                 <input
@@ -82,7 +83,7 @@
                   class="peer sr-only"
                 />
                 <span class="checkbox"></span>
-                <span class="ml-2 text-lg">Major</span>
+                <span class="ml-2 text-lg"><p>Major</p></span>
               </label>
               <label class="inline-flex items-center cursor-pointer" onclick="displayMinor()">
                 <input
@@ -92,7 +93,7 @@
                   class="peer sr-only"
                 />
                 <span class="checkbox"></span>
-                <span class="ml-2 text-lg">Minor</span>
+                <span class="ml-2 text-lg"><p>Minor</p></span>
               </label>
             </span>
           </div>
@@ -116,31 +117,31 @@
           </div>
         </div>
 
-        <div id="subject__div">
+        <div class="" id="subject_div">
           <!-- tasks and subj here -->
         </div>
 
         <!-- Modal -->
         <div id="createSubjModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 hidden">
-          <div class="bg-bg w-full max-w-md p-6 rounded-[8px] shadow-xl relative">
+          <div class="bg-bg w-full max-w-sm md:max-w-md p-6 rounded-[8px] shadow-xl relative">
             <!-- Close button -->
             <button onclick="document.getElementById('createSubjModal').classList.add('hidden')" class="absolute top-2 right-2 text-gray-400 hover:text-gray-600">
               &times;
             </button>
 
-            <h2 class="text-xl font-semibold text-primary mb-4">Create Subject</h2>
+            <h2 class="text-lg md:text-xl font-semibold text-primary mb-4">Create Subject</h2>
 
             <form id="createSubjectForm" class="space-y-4">
               <!-- Name -->
               <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1">Name</label>
-                <input type="text" name="name" class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" required>
+                <label class="block text-xs md:text-sm font-medium text-gray-700 mb-1">Name</label>
+                <input type="text" name="name" class="text-xs md:text-sm w-full p-1 md:p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" required>
               </div>
 
               <!-- Class (Major/Minor) -->
               <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1">Class</label>
-                <select name="classname" class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" required>
+                <label class="block text-xs md:text-sm font-medium text-gray-700 mb-1">Class</label>
+                <select name="classname" class="w-full text-xs md:text-sm p-1 md:p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" required>
                   <option value="">Select</option>
                   <option value="major">Major</option>
                   <option value="minor">Minor</option>
@@ -149,74 +150,74 @@
 
               <!-- Color Options -->
               <div>
-                <label class="block text-sm font-medium text-gray-700 mb-2">Color</label>
+                <label class="block text-xs md:text-sm font-medium text-gray-700 mb-2">Color</label>
                 <div class="flex flex-wrap gap-2">
                 <!-- Each label handles a pastel color radio with ring on checked -->
                   <label class="cursor-pointer">
                     <input type="radio" name="color" value="#FFD1DC" class="hidden peer" required>
-                    <span class="w-8 h-8 block rounded-full bg-pink-200 peer-checked:ring-2 peer-checked:ring-primary border-2 border-transparent hover:border-primary"></span>
+                    <span class="w-7 aspect-square md:w-8 block rounded-full bg-pink-200 peer-checked:ring-2 peer-checked:ring-primary border-2 border-transparent hover:border-primary"></span>
                   </label>
                   <label class="cursor-pointer">
                     <input type="radio" name="color" value="#A0E7E5" class="hidden peer">
-                    <span class="w-8 h-8 block rounded-full bg-cyan-200 peer-checked:ring-2 peer-checked:ring-primary border-2 border-transparent hover:border-primary"></span>
+                    <span class="w-7 aspect-square md:w-8 block rounded-full bg-cyan-200 peer-checked:ring-2 peer-checked:ring-primary border-2 border-transparent hover:border-primary"></span>
                     </label>
                   <label class="cursor-pointer">
                     <input type="radio" name="color" value="#BDB2FF" class="hidden peer">
-                    <span class="w-8 h-8 block rounded-full bg-purple-200 peer-checked:ring-2 peer-checked:ring-primary border-2 border-transparent hover:border-primary"></span>
+                    <span class="w-7 aspect-square md:w-8 block rounded-full bg-purple-200 peer-checked:ring-2 peer-checked:ring-primary border-2 border-transparent hover:border-primary"></span>
                   </label>
                   <label class="cursor-pointer">
                     <input type="radio" name="color" value="#FFDAC1" class="hidden peer">
-                    <span class="w-8 h-8 block rounded-full bg-orange-200 peer-checked:ring-2 peer-checked:ring-primary border-2 border-transparent hover:border-primary"></span>
+                    <span class="w-7 aspect-square md:w-8 block rounded-full bg-orange-200 peer-checked:ring-2 peer-checked:ring-primary border-2 border-transparent hover:border-primary"></span>
                   </label>
                   
                 <!-- "Boyish" Pastel Colors -->
                   <label class="cursor-pointer">
                     <input type="radio" name="color" value="#C3F0CA" class="hidden peer">
-                    <span class="w-8 h-8 block rounded-full bg-green-200 peer-checked:ring-2 peer-checked:ring-primary border-2 border-transparent hover:border-primary"></span>
+                    <span class="w-7 aspect-square md:w-8 block rounded-full bg-green-200 peer-checked:ring-2 peer-checked:ring-primary border-2 border-transparent hover:border-primary"></span>
                   </label>
                   <label class="cursor-pointer">
                     <input type="radio" name="color" value="#AEC6CF" class="hidden peer">
-                    <span class="w-8 h-8 block rounded-full bg-blue-200 peer-checked:ring-2 peer-checked:ring-primary border-2 border-transparent hover:border-primary"></span>
+                    <span class="w-7 aspect-square md:w-8 block rounded-full bg-blue-200 peer-checked:ring-2 peer-checked:ring-primary border-2 border-transparent hover:border-primary"></span>
                   </label>
                   <label class="cursor-pointer">
-                    <input type="radio" name="color" value="#D5E1DF" class="hidden peer">
-                    <span class="w-8 h-8 block rounded-full bg-gray-200 peer-checked:ring-2 peer-checked:ring-primary border-2 border-transparent hover:border-primary"></span>
+                    <input type="radio" name="color" value="#d9757e" class="hidden peer">
+                    <span class="w-7 aspect-square md:w-8 block rounded-full bg-[#d9757e] peer-checked:ring-2 peer-checked:ring-primary border-2 border-transparent hover:border-primary"></span>
                   </label>
                   <label class="cursor-pointer">
                     <input type="radio" name="color" value="#B2EBF2" class="hidden peer">
-                    <span class="w-8 h-8 block rounded-full bg-teal-200 peer-checked:ring-2 peer-checked:ring-primary border-2 border-transparent hover:border-primary"></span>
+                    <span class="w-7 aspect-square md:w-8 block rounded-full bg-teal-200 peer-checked:ring-2 peer-checked:ring-primary border-2 border-transparent hover:border-primary"></span>
                   </label>
                 </div>
               </div>
 
               <!-- Submit -->
               <div class="text-right">
-                <button onclick="createSubject(event)" class="bg-primary text-white px-4 py-2 rounded-md hover:bg-opacity-90">Submit</button>
+                <button onclick="createSubject(event)" class="bg-primary text-white px-3 py-2 md:px-4 md:py-2 rounded-md hover:bg-opacity-90"><p>Submit</p></button>
               </div>
             </form>
           </div>
         </div>
 
         <div id="editSubjModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 hidden">
-          <div class="bg-bg w-full max-w-md p-6 rounded-[8px] shadow-xl relative">
+          <div class="bg-bg w-full max-w-sm md:max-w-md p-6 rounded-[8px] shadow-xl relative">
             <!-- Close button -->
             <button onclick="document.getElementById('editSubjModal').classList.add('hidden')" class="absolute top-2 right-2 text-gray-400 hover:text-gray-600">
               &times;
             </button>
 
-            <h2 class="text-xl font-semibold text-primary mb-4">Edit Subject</h2>
+            <h2 class="text-lg md:text-xl font-semibold text-primary mb-4">Edit Subject</h2>
 
             <form id="editSubjectForm" class="space-y-4">
               <!-- Name -->
               <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1">Name</label>
-                <input type="text" name="name" class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" required>
+                <label class="block text-xs md:text-sm font-medium text-gray-700 mb-1">Name</label>
+                <input type="text" name="name" class="w-full text-xs md:text-sm p-1 md:p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" required>
               </div>
 
               <!-- Class (Major/Minor) -->
               <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1">Class</label>
-                <select name="classname" class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" required>
+                <label class="block text-xs md:text-sm font-medium text-gray-700 mb-1">Class</label>
+                <select name="classname" class="text-xs md:text-sm w-full p-1 md:p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" required>
                   <option value="">Select</option>
                   <option value="major">Major</option>
                   <option value="minor">Minor</option>
@@ -230,214 +231,280 @@
                       <!-- Each label handles a pastel color radio with ring on checked -->
                       <label class="cursor-pointer">
                         <input type="radio" name="color" value="#FFD1DC" class="hidden peer" required>
-                        <span class="w-8 h-8 block rounded-full bg-pink-200 peer-checked:ring-2 peer-checked:ring-primary border-2 border-transparent hover:border-primary"></span>
+                        <span class="w-7 aspect-square md:w-8 block rounded-full bg-pink-200 peer-checked:ring-2 peer-checked:ring-primary border-2 border-transparent hover:border-primary"></span>
                       </label>
                       <label class="cursor-pointer">
                         <input type="radio" name="color" value="#A0E7E5" class="hidden peer">
-                        <span class="w-8 h-8 block rounded-full bg-cyan-200 peer-checked:ring-2 peer-checked:ring-primary border-2 border-transparent hover:border-primary"></span>
+                        <span class="w-7 aspect-square md:w-8 block rounded-full bg-cyan-200 peer-checked:ring-2 peer-checked:ring-primary border-2 border-transparent hover:border-primary"></span>
                       </label>
                       <label class="cursor-pointer">
                         <input type="radio" name="color" value="#BDB2FF" class="hidden peer">
-                        <span class="w-8 h-8 block rounded-full bg-purple-200 peer-checked:ring-2 peer-checked:ring-primary border-2 border-transparent hover:border-primary"></span>
+                        <span class="w-7 aspect-square md:w-8 block rounded-full bg-purple-200 peer-checked:ring-2 peer-checked:ring-primary border-2 border-transparent hover:border-primary"></span>
                       </label>
                       <label class="cursor-pointer">
                         <input type="radio" name="color" value="#FFDAC1" class="hidden peer">
-                        <span class="w-8 h-8 block rounded-full bg-orange-200 peer-checked:ring-2 peer-checked:ring-primary border-2 border-transparent hover:border-primary"></span>
+                        <span class="w-7 aspect-square md:w-8 block rounded-full bg-orange-200 peer-checked:ring-2 peer-checked:ring-primary border-2 border-transparent hover:border-primary"></span>
                       </label>
                   
                       <!-- "Boyish" Pastel Colors -->
                       <label class="cursor-pointer">
                         <input type="radio" name="color" value="#C3F0CA" class="hidden peer">
-                        <span class="w-8 h-8 block rounded-full bg-green-200 peer-checked:ring-2 peer-checked:ring-primary border-2 border-transparent hover:border-primary"></span>
+                        <span class="w-7 aspect-square md:w-8 block rounded-full bg-green-200 peer-checked:ring-2 peer-checked:ring-primary border-2 border-transparent hover:border-primary"></span>
                       </label>
                       <label class="cursor-pointer">
                         <input type="radio" name="color" value="#AEC6CF" class="hidden peer">
-                        <span class="w-8 h-8 block rounded-full bg-blue-200 peer-checked:ring-2 peer-checked:ring-primary border-2 border-transparent hover:border-primary"></span>
+                        <span class="w-7 aspect-square md:w-8 block rounded-full bg-blue-200 peer-checked:ring-2 peer-checked:ring-primary border-2 border-transparent hover:border-primary"></span>
                       </label>
                       <label class="cursor-pointer">
-                        <input type="radio" name="color" value="#D5E1DF" class="hidden peer">
-                        <span class="w-8 h-8 block rounded-full bg-gray-200 peer-checked:ring-2 peer-checked:ring-primary border-2 border-transparent hover:border-primary"></span>
+                        <input type="radio" name="color" value="#d9757e" class="hidden peer">
+                        <span class="w-7 aspect-square md:w-8 block rounded-full bg-[#d9757e] peer-checked:ring-2 peer-checked:ring-primary border-2 border-transparent hover:border-primary"></span>
                       </label>
                       <label class="cursor-pointer">
                         <input type="radio" name="color" value="#B2EBF2" class="hidden peer">
-                        <span class="w-8 h-8 block rounded-full bg-teal-200 peer-checked:ring-2 peer-checked:ring-primary border-2 border-transparent hover:border-primary"></span>
+                        <span class="w-7 aspect-square md:w-8 block rounded-full bg-teal-200 peer-checked:ring-2 peer-checked:ring-primary border-2 border-transparent hover:border-primary"></span>
                       </label>
                     </div>
                 </div>
 
               <!-- Submit -->
               <div class="text-right">
-                <button onclick="editSubject(event)" class="bg-primary text-white px-4 py-2 rounded-md hover:bg-opacity-90">Submit</button>
+                <button onclick="editSubject(event)" class="bg-primary text-white px-3 py-2 md:px-4 md:py-2 rounded-md hover:bg-opacity-90"><p>Submit</p></button>
               </div>
             </form>
           </div>
         </div>
 
         <div id="createTaskModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 hidden">
-          <div class="bg-bg w-full max-w-md p-6 rounded-[8px] shadow-xl relative">
+          <div class="bg-bg w-full max-w-sm md:max-w-md p-6 rounded-[8px] shadow-xl relative">
             <!-- Close button -->
             <button onclick="document.getElementById('createTaskModal').classList.add('hidden')" class="absolute top-2 right-2 text-gray-400 hover:text-gray-600">
               &times;
             </button>
         
-            <h2 class="text-xl font-semibold text-primary mb-4">Create Task</h2>
+            <h2 class="text-lg md:text-xl font-semibold text-primary mb-4">Create Task</h2>
         
             <form id="createTaskForm" class="space-y-4" enctype="multipart/form-data">
               <!-- Name -->
               <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1">Name</label>
-                <input type="text" name="name" class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" required>
+                <label class="block text-xs md:text-sm font-medium text-gray-700 mb-1">Name</label>
+                <input type="text" name="name" class="text-xs md:text-sm w-full p-1 md:p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" required>
               </div>
         
               <!-- Description -->
               <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1">Description</label>
-                <textarea name="description" rows="4" class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary resize-none" required></textarea>
+                <label class="block text-xs md:text-sm font-medium text-gray-700 mb-1">Description</label>
+                <textarea name="description" rows="4" class="text-xs md:text-sm w-full p-1 md:p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary resize-none" required></textarea>
               </div>
         
               <!-- Deadline -->
               <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1">Deadline</label>
-                <input type="datetime-local" name="deadline" class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" required>
+                <label class="block text-xs md:text-sm font-medium text-gray-700 mb-1">Deadline</label>
+                <input type="datetime-local" name="deadline" class="text-xs md:text-sm w-full p-1 md:p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" required>
               </div>
         
               <!-- Image Upload -->
               <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1">Image</label>
-                <input type="file" name="img_filename" accept="image/*" class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" required>
+                <label class="block text-xs md:text-sm font-medium text-gray-700 mb-1">Image</label>
+                <input type="file" name="img_filename" accept="image/*" class="text-xs md:text-sm w-full p-1 md:p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" required>
               </div>
         
               <!-- Submit -->
               <div class="text-right">
-                <button onclick="createTask(event)" class="bg-primary text-white px-4 py-2 rounded-md hover:bg-opacity-90">Submit</button>
+                <button onclick="createTask(event)" class="bg-primary text-white px-3 py-2 md:px-4 md:py-2 rounded-md hover:bg-opacity-90"><p>Submit</p></button>
               </div>
             </form>
           </div>
         </div>
 
         <div id="editTaskModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 hidden">
-          <div class="bg-bg w-full max-w-md p-6 rounded-[8px] shadow-xl relative">
+          <div class="bg-bg w-full max-w-sm md:max-w-md p-6 rounded-[8px] shadow-xl relative">
             <!-- Close button -->
             <button onclick="document.getElementById('editTaskModal').classList.add('hidden')" class="absolute top-2 right-2 text-gray-400 hover:text-gray-600">
               &times;
             </button>
         
-            <h2 class="text-xl font-semibold text-primary mb-4">Edit Task</h2>
+            <h2 class="text-lg md:text-md font-semibold text-primary mb-4">Edit Task</h2>
         
             <form id="editTaskForm" class="space-y-4" enctype="multipart/form-data">
               <!-- Name -->
               <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1">Name</label>
-                <input type="text" name="name" class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" required>
+                <label class="block text-xs md:text-sm font-medium text-gray-700 mb-1">Name</label>
+                <input type="text" name="name" class="text-xs md:text-sm w-full p-1 md:p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" required>
               </div>
         
               <!-- Description -->
               <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1">Description</label>
-                <textarea name="description" rows="4" class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary resize-none" required></textarea>
+                <label class="block text-xs md:text-sm font-medium text-gray-700 mb-1">Description</label>
+                <textarea name="description" rows="4" class="text-xs md:text-sm w-full p-1 md:p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary resize-none" required></textarea>
               </div>
         
               <!-- Deadline -->
               <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1">Deadline</label>
-                <input type="datetime-local" name="deadline" class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" required>
+                <label class="block text-xs md:text-sm font-medium text-gray-700 mb-1">Deadline</label>
+                <input type="datetime-local" name="deadline" class="text-xs md:text-sm w-full p-1 md:p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" required>
               </div>
         
               <!-- Existing Image Preview -->
               <div id="existingImageWrapper" class="mb-2">
-                <p class="text-sm text-gray-600">Current Image:</p>
-                <img id="existingImagePreview" src="" alt="Current Image" class="w-32 h-32 object-cover rounded border" />
+                <p class="text-xs md:text-sm text-gray-600">Current Image:</p>
+                <img id="existingImagePreview" src="" alt="Current Image" class="w-25 md:w-32 aspect-square object-cover rounded border" />
               </div>
 
               <!-- Image Upload -->
               <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1">Change Image (optional)</label>
-                <input type="file" name="image" accept="image/*" class="w-full p-2 border border-gray-300 rounded-md">
+                <label class="block text-xs md:text-sm font-medium text-gray-700 mb-1">Change Image (optional)</label>
+                <input type="file" name="image" accept="image/*" class="text-xs md:text-sm w-full p-1 md:p-2 border border-gray-300 rounded-md">
               </div>
         
               <!-- Submit -->
               <div class="text-right">
-                <button onclick="editTask(event)" class="bg-primary text-white px-4 py-2 rounded-md hover:bg-opacity-90">Submit</button>
+                <button onclick="editTask(event)" class="bg-primary text-white px-3 py-2 md:px-4 md:py-2 rounded-md hover:bg-opacity-90"><p>Submit</p></button>
               </div>
             </form>
           </div>
         </div>
 
         <div id="deleteTaskModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 hidden">
-          <div class="bg-bg w-full max-w-md p-6 rounded-[8px] shadow-xl relative">
+          <div class="bg-bg w-full max-w-sm md:max-w-md p-6 rounded-[8px] shadow-xl relative">
             <!-- Close button -->
             <button onclick="document.getElementById('deleteTaskModal').classList.add('hidden')" class="absolute top-2 right-2 text-gray-400 hover:text-gray-600">
               &times;
             </button>
         
-            <h2 class="text-xl font-semibold text-primary mb-4">Delete Task</h2>
+            <h2 class="text-base md:text-lg font-semibold text-primary mb-4">Delete Task</h2>
         
             <p class="pb-7">Are you sure you want to delete?</p>
         
               <!-- Submit -->
               <div class="flex justify-end gap-3">
-                <button onclick="deleteTask(event)" class="bg-primary text-white px-4 py-2 rounded-md hover:bg-opacity-90">Yes</button>
-                <button onclick="document.getElementById('deleteTaskModal').classList.add('hidden')" class="bg-primary text-white px-4 py-2 rounded-md hover:bg-opacity-90">Cancel</button>
+                <button onclick="deleteTask(event)" class="bg-primary text-white px-3 py-2 md:px-4 md:py-2 rounded-md hover:bg-opacity-90"><p>Delete</p></button>
+                <button onclick="document.getElementById('deleteTaskModal').classList.add('hidden')" class="bg-primary text-white px-3 py-2 md:px-4 md:py-2 rounded-md hover:bg-opacity-90"><p>Cancel</p></button>
               </div>
             </form>
           </div>
         </div>
         
         <div id="deleteSubjModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 hidden">
-          <div class="bg-bg w-full max-w-md p-6 rounded-[8px] shadow-xl relative">
+          <div class="bg-bg w-full max-w-sm md:max-w-md p-6 rounded-[8px] shadow-xl relative">
             <!-- Close button -->
             <button onclick="document.getElementById('deleteSubjModal').classList.add('hidden')" class="absolute top-2 right-2 text-gray-400 hover:text-gray-600">
               &times;
             </button>
         
-            <h2 class="text-xl font-semibold text-primary mb-4">Delete Subject</h2>
+            <h2 class="text-base md:text-lg font-semibold text-primary mb-4">Delete Subject</h2>
         
             <p class="pb-7">Are you sure you want to delete? This will also delete the tasks related to this subject.</p>
         
               <!-- Submit -->
               <div class="flex justify-end gap-3">
-                <button onclick="deleteSubject(event)" class="bg-primary text-white px-4 py-2 rounded-md hover:bg-opacity-90">Yes</button>
-                <button onclick="document.getElementById('deleteSubjModal').classList.add('hidden')"  class="bg-primary text-white px-4 py-2 rounded-md hover:bg-opacity-90">Cancel</button>
+                <button onclick="deleteSubject(event)" class="bg-primary text-white px-3 py-2 md:px-4 md:py-2 rounded-md hover:bg-opacity-90"><p>Delete</p></button>
+                <button onclick="document.getElementById('deleteSubjModal').classList.add('hidden')"  class="bg-primary text-white px-3 py-2 md:px-4 md:py-2 rounded-md hover:bg-opacity-90"><p>Cancel</p></button>
               </div>
             </form>
           </div>
         </div>
 
         <div id="updateStatusModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 hidden">
-          <div class="bg-bg w-full max-w-md p-6 rounded-[8px] shadow-xl relative">
+          <div class="bg-bg w-full max-w-sm md:max-w-md p-6 rounded-[8px] shadow-xl relative">
             <!-- Close button -->
             <button onclick="document.getElementById('updateStatusModal').classList.add('hidden')" class="absolute top-2 right-2 text-gray-400 hover:text-gray-600">
               &times;
             </button>
         
-            <h2 class="text-xl font-semibold text-primary mb-4">Mark as Done</h2>
+            <h2 class="text-base md:text-lg font-semibold text-primary mb-4">Mark as Done</h2>
         
             <p class="pb-7">Are you sure you want to mark this task as done?</p>
         
               <!-- Submit -->
               <div class="flex justify-end gap-3">
-                <button onclick="updateStatus(event)" class="bg-primary text-white px-4 py-2 rounded-md hover:bg-opacity-90">Yes</button>
-                <button onclick="document.getElementById('updateStatusModal').classList.add('hidden')" class="bg-primary text-white px-4 py-2 rounded-md hover:bg-opacity-90">Cancel</button>
+                <button onclick="updateStatus(event)" class="bg-primary text-white px-3 py-2 md:px-4 md:py-2 rounded-md hover:bg-opacity-90"><p>Done</p></button>
+                <button onclick="document.getElementById('updateStatusModal').classList.add('hidden')" class="bg-primary text-white px-3 py-2 md:px-4 md:py-2 rounded-md hover:bg-opacity-90"><p>Cancel</p></button>
               </div>
             </form>
           </div>
         </div>
 
         <div id="reupdateStatusModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 hidden">
-          <div class="bg-bg w-full max-w-md p-6 rounded-[8px] shadow-xl relative">
+          <div class="bg-bg w-full max-w-sm md:max-w-md p-6 rounded-[8px] shadow-xl relative">
             <!-- Close button -->
             <button onclick="document.getElementById('reupdateStatusModal').classList.add('hidden')" class="absolute top-2 right-2 text-gray-400 hover:text-gray-600">
               &times;
             </button>
         
-            <h2 class="text-xl font-semibold text-primary mb-4">Unmark as done</h2>
+            <h2 class="text-base md:text-lg font-semibold text-primary mb-4">Unmark as done</h2>
         
             <p class="pb-7">Are you sure you want to unmark this task as done?</p>
         
               <!-- Submit -->
               <div class="flex justify-end gap-3">
-                <button onclick="reupdateStatus(event)" class="bg-primary text-white px-4 py-2 rounded-md hover:bg-opacity-90">Yes</button>
-                <button onclick="document.getElementById('reupdateStatusModal').classList.add('hidden')" class="bg-primary text-white px-4 py-2 rounded-md hover:bg-opacity-90">Cancel</button>
+                <button onclick="reupdateStatus(event)" class="bg-primary text-white px-3 py-2 md:px-4 md:py-2 rounded-md hover:bg-opacity-90"><p>Yes</p></button>
+                <button onclick="document.getElementById('reupdateStatusModal').classList.add('hidden')" class="bg-primary text-white px-3 py-2 md:px-4 md:py-2 rounded-md hover:bg-opacity-90"><p>Cancel</p></button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div id="editProfileModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 hidden">
+          <div class="bg-bg w-full max-w-sm md:max-w-md p-6 rounded-[8px] shadow-xl relative">
+            <!-- Close button -->
+            <button onclick="document.getElementById('editProfileModal').classList.add('hidden')" class="absolute top-2 right-2 text-gray-400 hover:text-gray-600">
+              &times;
+            </button>
+
+            <h2 class="text-base md:text-lg font-semibold text-primary mb-4">Change profile?</h2>
+
+            <form id="editProfileForm" class="space-y-4">
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">New profile</label>
+                <input type="file" name="profile" accept="image/*" class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" required>
+              </div>
+              <!-- Submit -->
+              <div class="text-right">
+                <button onclick="editProfile(event)" class="bg-primary text-white px-3 py-2 md:px-4 md:py-2 rounded-md hover:bg-opacity-90"><p>Save</p></button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div id="editHeaderModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 hidden">
+          <div class="bg-bg w-full max-w-sm md:max-w-md p-6 rounded-[8px] shadow-xl relative">
+            <!-- Close button -->
+            <button onclick="document.getElementById('editHeaderModal').classList.add('hidden')" class="absolute top-2 right-2 text-gray-400 hover:text-gray-600">
+              &times;
+            </button>
+
+            <h2 class="text-base md:text-lg font-semibold text-primary mb-4">Change header?</h2>
+
+            <form id="editHeaderForm" class="space-y-4">
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">New header</label>
+                <input type="file" name="header" accept="image/*" class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" required>
+              </div>
+              <!-- Submit -->
+              <div class="text-right">
+                <button onclick="editHeader(event)" class="bg-primary text-white px-3 py-2 md:px-4 md:py-2 rounded-md hover:bg-opacity-90"><p>Save</p></button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div id="editBioModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 hidden">
+          <div class="bg-bg w-full max-w-sm md:max-w-md p-6 rounded-[8px] shadow-xl relative">
+            <!-- Close button -->
+            <button onclick="document.getElementById('editBioModal').classList.add('hidden')" class="absolute top-2 right-2 text-gray-400 hover:text-gray-600">
+              &times;
+            </button>
+
+            <h2 class="text-base md:text-lg font-semibold text-primary mb-4">Change bio?</h2>
+
+            <form id="editBioForm" class="space-y-4">
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">New bio</label>
+                <input type="file" name="bio" accept="image/*" class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" required>
+              </div>
+              <!-- Submit -->
+              <div class="text-right">
+                <button onclick="editBio(event)" class="bg-primary text-white px-3 py-2 md:px-4 md:py-2 rounded-md hover:bg-opacity-90"><p>Save</p></button>
               </div>
             </form>
           </div>
@@ -533,7 +600,12 @@
         </div> -->
       </main>
     </section>
+
+    
+    
     <script src="index.js"></script>
+    <script src="responsive.js"></script>
+
 
   </body>
 </html>

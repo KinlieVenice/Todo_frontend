@@ -40,7 +40,7 @@
     }
 
     p {
-        @apply lg:text-lg md:text-base text-xs;
+        @apply md:text-base text-xs;
     }
 
     a {
@@ -51,7 +51,7 @@
 
 @layer components {
     .tabs {
-        @apply flex gap-x-[15px] items-center bg-bg w-full py-[8px] pl-[13px] pr-[8px] border border-transparent rounded-[8px] text-dark;
+        @apply flex gap-x-[15px] items-center bg-bg w-full py-[8px] pl-[13px] pr-[8px] border border-transparent rounded-[8px] text-light;
     }
 
     .tabs-indent {
@@ -63,7 +63,7 @@
     }
     
     .tabs-selected {
-        @apply !bg-primary !text-light ;
+        @apply !bg-gray-500/20  ;
     }
 
     .tabs-selected svg{
@@ -71,11 +71,78 @@
     }
 
     .checkbox {
-        @apply w-4 h-4 rounded-[4px] border-2 border-primary peer-checked:bg-primary peer-checked:border-primary transition-colors;
+        @apply w-3 aspect-square md:w-4 rounded-[4px] border-2 border-primary peer-checked:bg-primary peer-checked:border-primary transition-colors;
     }
 
     .subject {
         @apply font-semibold flex justify-between py-[10px] px-[20px] mb-[15px] bg-accent border items-center border-transparent rounded-[14px];
     }
+
+    #toggle_menu span:nth-child(1) {
+        @apply top-0;
+    }
+      
+    #toggle_menu span:nth-child(2), #toggle_menu span:nth-child(3) {
+        @apply top-[7.5px];
+    }
+      
+    #toggle_menu span:nth-child(4) {
+        @apply top-[15px];
+    }
+      
+    #toggle_menu.open span:nth-child(1), #toggle_menu.open span:nth-child(4) {
+        @apply top-[7.5px] !w-0 !opacity-0;
+    }
+      
+    #toggle_menu.open span:nth-child(2) {
+        @apply rotate-45;
+    }
+      
+    #toggle_menu.open span:nth-child(3) {
+        @apply -rotate-45;
+    }
+
+    .side_panel {
+        @apply fixed right-[-100%] ease-in duration-500;
+    }
+
+    .side_panel.open {
+        @apply right-0;
+    }
+
+    .backdrop {
+        @apply w-[100dvh] h-[100dvh] hidden top-0 overflow-hidden;
+      }
+    
+    .backdrop.open {
+        @apply backdrop-blur-[1px] bg-black/20 fixed block ;
+    }
+
+    html.noscroll, body.noscroll {
+        @apply overflow-hidden;
+    }
+
+    svg {
+        @apply w-6 md:w-7 lg:w-8;
+    }
+    .subject svg, .indiv-task svg {
+        width: 14px;
+        height: 16px;
+      }
+      
+      @media (min-width: 768px) {
+        .subject svg {
+          width: 18px;
+          height: 20px;
+        }
+      }
+      
+      @media (min-width: 1024px) {
+        .subject svg {
+          width: 20px;
+          height: 22px;
+        }
+      }
+      
 
 }
