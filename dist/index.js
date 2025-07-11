@@ -1,17 +1,20 @@
 const url = "http://127.0.0.1:5000";
 let currentId = null;
+let subjId = null;
+let userId;
+
 
 // FETCHING
 const fetchSubjects = async () => {
   try {
-    const token = localStorage.getItem("jwt");  // 🔐 Get token from storage
+    const token = localStorage.getItem("jwt");  
     const link = `${url}/subjects`;
 
     const response = await fetch(link, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": token  // ✅ Add the JWT token to the request
+        "Authorization": token  
       },
     });
 
@@ -31,14 +34,14 @@ const fetchSubjects = async () => {
 
 const fetchTasks = async (subj_id) => {
   try {
-    const token = localStorage.getItem("jwt"); //  Get token from storage
+    const token = localStorage.getItem("jwt");
     const link = `${url}/subjects/${subj_id}/tasks`;
 
     const response = await fetch(link, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        Authorization: token, //  Add token to authorize request
+        Authorization: token, 
       },
     });
 
@@ -47,7 +50,6 @@ const fetchTasks = async (subj_id) => {
     }
 
     const data = await response.json();
-    console.log("Fetched tasks:", data);
     return data;
   } catch (error) {
     console.error("Error fetching tasks:", error);
@@ -57,14 +59,14 @@ const fetchTasks = async (subj_id) => {
 
 const fetchIndivSubj = async (id) => {
   try {
-    const token = localStorage.getItem("jwt"); //  Get token from storage
+    const token = localStorage.getItem("jwt"); 
     const link = `${url}/subjects/${id}`;
 
     const response = await fetch(link, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        Authorization: token, //  Add token to authorize request
+        Authorization: token, 
       },
     });
 
@@ -73,7 +75,6 @@ const fetchIndivSubj = async (id) => {
     }
 
     const data = await response.json();
-    console.log("Fetched tasks:", data);
     return data;
   } catch (error) {
     console.error("Error fetching tasks:", error);
@@ -83,7 +84,7 @@ const fetchIndivSubj = async (id) => {
 
 const fetchDone = async () => {
   try {
-    const token = localStorage.getItem("jwt"); // 🔐 Get token from storage
+    const token = localStorage.getItem("jwt");
 
     let link = `${url}/subjects/tasks/done`;
 
@@ -91,7 +92,7 @@ const fetchDone = async () => {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        Authorization: token // ✅ Add token to authorize request
+        Authorization: token 
       },
     });
 
@@ -100,7 +101,6 @@ const fetchDone = async () => {
     }
 
     const data = await response.json();
-    console.log("Fetched tasks:", data);
     return data;
   } catch (error) {
     console.error("Error fetching tasks:", error);
@@ -110,14 +110,14 @@ const fetchDone = async () => {
 
 const fetchMajor = async () => {
   try {
-    const token = localStorage.getItem("jwt"); //  Get token from storage
+    const token = localStorage.getItem("jwt"); 
     let link = `${url}/subjects/majors`;
 
     const response = await fetch(link, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        Authorization: token, //  Add token to authorize request
+        Authorization: token, 
       },
     });
 
@@ -126,7 +126,6 @@ const fetchMajor = async () => {
     }
 
     const data = await response.json();
-    console.log("Fetched tasks:", data);
     return data;
   } catch (error) {
     console.error("Error fetching tasks:", error);
@@ -136,14 +135,14 @@ const fetchMajor = async () => {
 
 const fetchMinor = async () => {
   try {
-    const token = localStorage.getItem("jwt"); //  Get token from storage
+    const token = localStorage.getItem("jwt"); 
     let link = `${url}/subjects/minors`;
 
     const response = await fetch(link, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        Authorization: token, //  Add token to authorize request
+        Authorization: token, 
       },
     });
 
@@ -152,7 +151,6 @@ const fetchMinor = async () => {
     }
 
     const data = await response.json();
-    console.log("Fetched tasks:", data);
     return data;
   } catch (error) {
     console.error("Error fetching tasks:", error);
@@ -162,14 +160,14 @@ const fetchMinor = async () => {
 
 const fetchUser = async (id) => {
   try {
-    const token = localStorage.getItem("jwt"); // 🔐 Get token from storage
+    const token = localStorage.getItem("jwt"); 
     const link = `${url}/api/register/${id}`;
 
     const response = await fetch(link, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        Authorization: token, // ✅ Add the JWT token to the request
+        Authorization: token, 
       },
     });
 
@@ -178,7 +176,6 @@ const fetchUser = async (id) => {
     }
 
     const data = await response.json();
-    console.log("Fetched user:", data);
     return data;
   } catch (error) {
     console.error("Error fetching user:", error);
@@ -192,15 +189,17 @@ const displaySubjects = async () => {
   const subjects = await fetchSubjects();
   const subj_div = document.getElementById("subject_div");
 
+  // delete content first to not keep appending
   subj_div.className = "";
   subj_div.innerHTML = "";
+
+  // because done changes the innerHTML
   document.getElementById("task_title").innerHTML = "My Tasks";
   document.getElementById("task_filters").classList.remove("hidden");
 
   const pending = document.getElementById("pendingTab");
   const done = document.getElementById("doneTab");
 
-  
   // Toggle visibility first
   pending.classList.add("tabs-selected");
   done.classList.remove("tabs-selected");
@@ -237,14 +236,6 @@ const displaySubjects = async () => {
       console.log(`tasks-maindiv-${subject.id}`);
 
     });
-
-    // this function is just to open tasks in case user added a task when the subject is opened, code prior is on createTask
-    const storedId = localStorage.getItem("currentId");
-    if (storedId) {
-      displayTasks(storedId);
-      localStorage.removeItem("currentId"); // Clean up
-    }
-
 };
 
 const displayTasks = async (subj_id) => {
@@ -252,7 +243,6 @@ const displayTasks = async (subj_id) => {
   const tasks_maindiv = document.getElementById(`tasks-maindiv-${subj_id}`);
   const task_div = document.getElementById(`task-div-${subj_id}`);
 
-  console.log(subj_id);
 
   // Toggle visibility first
   tasks_maindiv.classList.toggle("hidden");
@@ -272,10 +262,10 @@ const displayTasks = async (subj_id) => {
                 <div class="py-2 px-4 !rounded-t-[12px] flex justify-between items-center" style="background-color: ${rgbaColor}">
                   <p><span class="font-semibold">Deadline: <span>${task.deadline_date}</span> | <span>${task.deadline_time}</span></span></p>
                   <span class="flex gap-2 items-center">
-                      <svg onclick="event.stopPropagation(); showModal(event, ${task.id}, 'editTaskModal')" data-image="${task.img_filename}" data-deadline="${task.deadline}" data-description="${task.description}" data-name="${task.name}" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <svg onclick="event.stopPropagation(); showModal(event, ${task.id}, 'editTaskModal', ${task.subject_id})" data-image="${task.img_filename}" data-deadline="${task.deadline}" data-description="${task.description}" data-name="${task.name}" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path d="M10 1.39574C11.08 1.39574 12.08 1.7374 12.8975 2.32074L5.28583 9.93157C5.20624 10.0084 5.14276 10.1004 5.09908 10.2021C5.05541 10.3037 5.03242 10.4131 5.03146 10.5237C5.0305 10.6344 5.05158 10.7441 5.09348 10.8465C5.13538 10.9489 5.19726 11.042 5.2755 11.1202C5.35375 11.1985 5.44679 11.2604 5.5492 11.3023C5.65162 11.3442 5.76135 11.3652 5.872 11.3643C5.98265 11.3633 6.092 11.3403 6.19367 11.2967C6.29534 11.253 6.38729 11.1895 6.46417 11.1099L14.0758 3.49824C14.6784 4.3441 15.0016 5.35717 15 6.39574V14.7291C15 15.1711 14.8244 15.595 14.5118 15.9076C14.1993 16.2201 13.7754 16.3957 13.3333 16.3957H1.66667C1.22464 16.3957 0.800716 16.2201 0.488155 15.9076C0.175595 15.595 0 15.1711 0 14.7291V3.0624C0 2.62038 0.175595 2.19645 0.488155 1.88389C0.800716 1.57133 1.22464 1.39574 1.66667 1.39574H10ZM15.5475 0.848237C15.7037 1.00451 15.7915 1.21643 15.7915 1.4374C15.7915 1.65837 15.7037 1.8703 15.5475 2.02657L14.075 3.49824C13.7505 3.04267 13.3522 2.64442 12.8967 2.3199L14.3683 0.848237C14.5246 0.692011 14.7365 0.604248 14.9575 0.604248C15.1785 0.604248 15.3912 0.692011 15.5475 0.848237Z" fill="white"/>
                       </svg>
-                      <svg onclick="event.stopPropagation(); showModal(event, ${task.id}, 'deleteTaskModal')"  viewBox="0 0 13 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <svg onclick="event.stopPropagation(); showModal(event, ${task.id}, 'deleteTaskModal', ${task.subject_id})"  viewBox="0 0 13 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path d="M1.62484 13.3333C1.62484 14.25 2.37484 15 3.2915 15H9.95817C10.8748 15 11.6248 14.25 11.6248 13.3333V5C11.6248 4.08333 10.8748 3.33333 9.95817 3.33333H3.2915C2.37484 3.33333 1.62484 4.08333 1.62484 5V13.3333ZM11.6248 0.833333H9.5415L8.94984 0.241667C8.79984 0.0916666 8.58317 0 8.3665 0H4.88317C4.6665 0 4.44984 0.0916666 4.29984 0.241667L3.70817 0.833333H1.62484C1.1665 0.833333 0.791504 1.20833 0.791504 1.66667C0.791504 2.125 1.1665 2.5 1.62484 2.5H11.6248C12.0832 2.5 12.4582 2.125 12.4582 1.66667C12.4582 1.20833 12.0832 0.833333 11.6248 0.833333Z"
                           fill="white"/>
                       </svg>
@@ -284,7 +274,7 @@ const displayTasks = async (subj_id) => {
                 <div class="p-3 md:p-5">
                   <span class="flex justify-between items-center">
                     <label class="inline-flex items-center cursor-pointer">
-                      <input type="checkbox" name="done" value="${task.id}" class="peer sr-only" onclick="showModal(event, ${task.id}, 'updateStatusModal')"/>
+                      <input type="checkbox" name="done" value="${task.id}" class="peer sr-only" onclick="showModal(event, ${task.id}, 'updateStatusModal', ${task.subject_id})"/>
                       <span class="checkbox"></span>
                       <p class="font-semibold ml-2">${task.name}</p>
                     </label>
@@ -334,42 +324,44 @@ const displayDone = async () => {
       <div class=" py-2 px-4 !rounded-t-[12px] flex justify-between items-center" style="background-color: ${task.subject_color}">
                     <p><span class="font-semibold">Deadline: <span>${task.deadline_date}</span> | <span>${task.deadline_time}</span></span></p>
                     <span class="flex gap-3 items-center">
-                        <svg onclick="event.stopPropagation(); showModal(event, ${task.id}, 'deleteTaskModal')" width="13" height="15" viewBox="0 0 13 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg onclick="event.stopPropagation(); showModal(event, ${task.id}, 'deleteDoneModal')" width="13" height="15" viewBox="0 0 13 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M1.62484 13.3333C1.62484 14.25 2.37484 15 3.2915 15H9.95817C10.8748 15 11.6248 14.25 11.6248 13.3333V5C11.6248 4.08333 10.8748 3.33333 9.95817 3.33333H3.2915C2.37484 3.33333 1.62484 4.08333 1.62484 5V13.3333ZM11.6248 0.833333H9.5415L8.94984 0.241667C8.79984 0.0916666 8.58317 0 8.3665 0H4.88317C4.6665 0 4.44984 0.0916666 4.29984 0.241667L3.70817 0.833333H1.62484C1.1665 0.833333 0.791504 1.20833 0.791504 1.66667C0.791504 2.125 1.1665 2.5 1.62484 2.5H11.6248C12.0832 2.5 12.4582 2.125 12.4582 1.66667C12.4582 1.20833 12.0832 0.833333 11.6248 0.833333Z"
                             fill="white"/>
                         </svg>
                     </span>
                   </div>
-                  <div class="p-5">
-                    <h5 class="capitalize pb-2">Subject: ${task.subject_name}, ${task.subject_class}</h5>
+                  <div class="p-3 md:p-5">
+                    <h5 class="capitalize pb-2"><span class="font-semibold">Subject:</span> ${task.subject_name} | ${task.subject_class}</h5>
                     <span class="flex justify-between items-center">
                       <label class="inline-flex items-center cursor-pointer">
                         <input type="checkbox" name="done" value="${task.id}" class="peer sr-only" onclick="showModal(event, ${task.id}, 'reupdateStatusModal')" checked/>
                         <span class="checkbox"></span>
-                        <h3 class="ml-2">${task.name}</h3>
+                        <h3 class="font-semibold ml-2">${task.name}</h3>
                       </label>
-                      <span class="text-green-500">Done!</span>
+                      <p><span class="text-green-500">Done!</span></p>
                     </span>
-                    <div class="flex gap-8 w-full items-center px-5 p-3">
-                      <img src="${url}/images/${task.img_filename}" alt="" class="w-[90px] aspect-square object-cover"/>
+                    <div class="flex gap-8 w-full items-center px-5 p-3 !pb-0">
+                      <img src="${url}/images/${task.img_filename}" alt="" class="w-[70px] md:w-[90px] aspect-square object-cover"/>
                       <p class="max-w-[300px]">${descriptionHtml}</p>
                     </div>
                   </div>
                   </div>
     `;
 
-    container.appendChild(taskDiv); // Add each task to #main
+    container.appendChild(taskDiv); // Add each task to #main, appended needed because div was just created
   });
 };
 
 const displayMajor = async () => {
   displayUser(userId);
   const subjects = await fetchMajor();
-  // const container = document.getElementById("main");
   const subj_div = document.getElementById("subject_div");
   subj_div.className = "";
-  
   subj_div.innerHTML = "";
+
+  document.getElementById("task_title").innerHTML = "My Tasks";
+  document.getElementById("task_filters").classList.remove("hidden");
+
   const pending = document.getElementById("pendingTab");
   const done = document.getElementById("doneTab");
 
@@ -412,7 +404,8 @@ const displayMajor = async () => {
 const displayMinor = async () => {
   displayUser(userId);
   const subjects = await fetchMinor();
-  const container = document.getElementById("main");
+  document.getElementById("task_title").innerHTML = "My Tasks";
+  document.getElementById("task_filters").classList.remove("hidden");
   const subj_div = document.getElementById("subject_div");
   subj_div.className = "";
   subj_div.innerHTML = "";
@@ -674,7 +667,7 @@ const createSubject = async (e) => {
   e.preventDefault();
   const form = document.getElementById("createSubjectForm");
   const formData = new FormData(form);
-  const token = localStorage.getItem("jwt"); // Get the JWT
+  const token = localStorage.getItem("jwt"); 
 
   const requiredFields = ["name", "classname", "color"];
   let isValid = true;
@@ -711,10 +704,8 @@ const createSubject = async (e) => {
     }
 
     const data = await response.json();
-    console.log("Subject Created:", data);
-    // Optionally refresh subjects list or reset form
-    form.reset();
     displaySubjects();
+    form.reset();
   } catch (error) {
     console.error("Error:", error);
     alert("Failed to create subject.");
@@ -725,6 +716,7 @@ const createSubject = async (e) => {
 const createTask = async (event) => {
   event.stopPropagation();
   event.preventDefault();
+  const token = localStorage.getItem("jwt");
   const form = document.getElementById("createTaskForm");
   const formData = new FormData(form);
   const modal = document.getElementById("createTaskModal");
@@ -768,15 +760,11 @@ const createTask = async (event) => {
   let deadlineFormatted = deadlineInput.replace("T", " ") + ":00";
   formData.set("deadline", deadlineFormatted);
 
-  // Get JWT from localStorage
-  const token = localStorage.getItem("jwt");
-
-  // subjectId
   try {
     const response = await fetch(`${url}/subjects/${currentId}/tasks`, {
       method: "POST",
       headers: {
-        Authorization: token, //  Attach token only
+        Authorization: token, 
       },
       body: formData,
     });
@@ -786,17 +774,17 @@ const createTask = async (event) => {
     }
 
     const data = await response.json();
-    console.log("Task Created:", data);
 
     modal.classList.add("hidden");
-    form.reset();
 
     if (tasks_maindiv.classList.contains("hidden")) {
-      displayTasks(currentId);
+      await displayTasks(currentId);
     } else {
-      localStorage.setItem("currentId", currentId);
-      location.reload();
+      await displaySubjects();
+      await displayTasks(currentId);
     }
+    form.reset();
+
 
   } catch (error) {
     console.error("Error:", error);
@@ -808,7 +796,7 @@ const createTask = async (event) => {
 
 // EDITING
 const editSubject = async (event) => {
-  const token = localStorage.getItem("jwt"); //  Get token from storage
+  const token = localStorage.getItem("jwt"); 
   event.preventDefault();
   const form = document.getElementById("editSubjectForm");
   const formData = new FormData(form);
@@ -832,13 +820,12 @@ const editSubject = async (event) => {
     return;
   }
 
-  // subjectId
   try {
     const response = await fetch(`${url}/subjects/${currentId}`, {
       method: "PATCH",
       body: formData,
       headers: {
-        Authorization: token, // Send JWT token here
+        Authorization: token, 
       },
     });
 
@@ -847,11 +834,9 @@ const editSubject = async (event) => {
     }
 
     const data = await response.json();
-    console.log("Subject Updated:", data);
-    // alert(data.response || "Subject successfully updated.");
     modal.classList.add("hidden");
-    // form.reset();
     displaySubjects(); // Refresh the tasks list
+    return data;
   } catch (error) {
     console.error("Error:", error);
     alert("Something went wrong.");
@@ -891,13 +876,12 @@ const editTask = async (event) => {
   let deadlineFormatted = deadlineInput.replace("T", " ") + ":00";
   formData.set("deadline", deadlineFormatted);
 
-  // taskId
   try {
     const response = await fetch(`${url}/tasks/${currentId}`, {
       method: "PATCH",
       body: formData,
       headers: {
-        Authorization: token, // Send JWT token here
+        Authorization: token, 
       },
     });
 
@@ -906,19 +890,25 @@ const editTask = async (event) => {
     }
 
     const data = await response.json();
-    console.log("Task Created:", data);
 
-    // Close modal, reset form, and refresh tasks
     modal.classList.add("hidden");
     form.reset();
+    const tasks_maindiv = document.getElementById(`tasks-maindiv-${subjId}`);
+
+    if (tasks_maindiv){
+      await displaySubjects();
+      await displayTasks(subjId); //currentId here is the task not the subject change to subjId
+    }
+    return data;
+
   } catch (error) {
     console.error("Error:", error);
-    alert("Failed to create task. Please try again.");
+    alert("Failed to edit task. Please try again.");
   }
 };
 
 const editProfile = async (event) => {
-  const token = localStorage.getItem("jwt"); //  Get token from storage
+  const token = localStorage.getItem("jwt");
   event.stopPropagation();
   event.preventDefault();
   const form = document.getElementById("editProfileForm");
@@ -945,13 +935,12 @@ const editProfile = async (event) => {
     return;
   }
 
-  // userId
   try {
     const response = await fetch(`${url}/api/register/${currentId}`, {
       method: "PATCH",
       body: formData,
       headers: {
-        Authorization: token, // Send JWT token here
+        Authorization: token, 
       },
     });
 
@@ -960,20 +949,16 @@ const editProfile = async (event) => {
     }
 
     const data = await response.json();
-    console.log("Task Created:", data);
-
-    // Close modal, reset form, and refresh tasks
     modal.classList.add("hidden");
-    form.reset();
-    displayTasks(currentId); // taskId
+    location.reload();
   } catch (error) {
     console.error("Error:", error);
-    alert("Failed to create task. Please try again.");
+    alert("Failed to change profile. Please try again.");
   }
 };
 
 const editHeader = async (event) => {
-  const token = localStorage.getItem("jwt"); //  Get token from storage
+  const token = localStorage.getItem("jwt"); 
   event.stopPropagation();
   event.preventDefault();
   const form = document.getElementById("editHeaderForm");
@@ -999,13 +984,12 @@ const editHeader = async (event) => {
     alert("Please fill out all required fields");
     return;
   }
-// userId
   try {
     const response = await fetch(`${url}/api/register/${currentId}`, {
       method: "PATCH",
       body: formData,
       headers: {
-        Authorization: token, // Send JWT token here
+        Authorization: token, 
       },
     });
 
@@ -1014,20 +998,16 @@ const editHeader = async (event) => {
     }
 
     const data = await response.json();
-    console.log("Task Created:", data);
-
-    // Close modal, reset form, and refresh tasks
     modal.classList.add("hidden");
-    form.reset();
-    displayTasks(currentId); // Refresh the tasks list
+    location.reload();
   } catch (error) {
     console.error("Error:", error);
-    alert("Failed to create task. Please try again.");
+    alert("Failed to change header. Please try again.");
   }
 };
 
 const editBio = async (event) => {
-  const token = localStorage.getItem("jwt"); //  Get token from storage
+  const token = localStorage.getItem("jwt"); 
   event.stopPropagation();
   event.preventDefault();
   const form = document.getElementById("editBioForm");
@@ -1053,13 +1033,13 @@ const editBio = async (event) => {
     alert("Please fill out all required fields");
     return;
   }
-// userId
+
   try {
     const response = await fetch(`${url}/api/register/${currentId}`, {
       method: "PATCH",
       body: formData,
       headers: {
-        Authorization: token, // Send JWT token here
+        Authorization: token, 
       },
     });
 
@@ -1068,15 +1048,12 @@ const editBio = async (event) => {
     }
 
     const data = await response.json();
-    console.log("Task Created:", data);
 
-    // Close modal, reset form, and refresh tasks
     modal.classList.add("hidden");
-    form.reset();
-    displayTasks(currentId); // taskId
+    location.reload();
   } catch (error) {
     console.error("Error:", error);
-    alert("Failed to create task. Please try again.");
+    alert("Failed to change bio. Please try again.");
   }
 };
 
@@ -1109,7 +1086,6 @@ const deleteSubject = async (event) => {
     }
 
     const data = await response.json();
-    console.log("Deleted subject:", data);
 
     modal.classList.add("hidden");
     displaySubjects();
@@ -1126,21 +1102,21 @@ const deleteTask = async (event) => {
   event.stopPropagation();
   event.preventDefault();
   const modal = document.getElementById("deleteTaskModal");
+  const tasks_maindiv = document.getElementById(`tasks-maindiv-${subjId}`);
 
   try {
-    const token = localStorage.getItem("jwt"); // <-- ✅ GET TOKEN
+    const token = localStorage.getItem("jwt"); 
     if (!token) {
       alert("Please log in to perform this action.");
       return;
     }
-// taskId
+
     const link = `${url}/tasks/${currentId}`;
 
     const response = await fetch(link, {
       method: "DELETE",
       headers: {
-        Authorization: token, // <-- ✅ SEND TOKEN
-        "Content-Type": "application/json",
+        Authorization: token, 
       },
     });
 
@@ -1152,10 +1128,52 @@ const deleteTask = async (event) => {
     }
 
     const data = await response.json();
-    console.log("Deleted task:", data);
-
     modal.classList.add("hidden");
-    displaySubjects();
+
+    if (tasks_maindiv) {
+      await displaySubjects();
+      await displayTasks(subjId); //currentId here is the task not the subject change to subjId
+    }
+    return data;
+  } catch (error) {
+    console.error("Error deleting task:", error);
+    alert("Failed to delete task. " + error.message);
+    return [];
+  }
+};
+
+const deleteDone = async (event) => {
+  event.stopPropagation();
+  event.preventDefault();
+  const modal = document.getElementById("deleteDoneModal");
+
+  try {
+    const token = localStorage.getItem("jwt");
+    if (!token) {
+      alert("Please log in to perform this action.");
+      return;
+    }
+
+    const link = `${url}/tasks/${currentId}`;
+
+    const response = await fetch(link, {
+      method: "DELETE",
+      headers: {
+        Authorization: token,
+      },
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(
+        errorData.error || `HTTP error! Status: ${response.status}`
+      );
+    }
+
+    const data = await response.json();
+    modal.classList.add("hidden");
+
+    displayDone();
     return data;
   } catch (error) {
     console.error("Error deleting task:", error);
@@ -1165,16 +1183,17 @@ const deleteTask = async (event) => {
 };
 
 
-
 // UPDATE STATUS
 const updateStatus = async (event) => {
+  const tasks_maindiv = document.getElementById(`tasks-maindiv-${subjId}`);
+
   try {
-    const token = localStorage.getItem("jwt"); //  taskId
+    const token = localStorage.getItem("jwt");
     const response = await fetch(`${url}/tasks/done/${currentId}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
-        Authorization: token, //  Add token to authorize request
+        Authorization: token, 
       },
       body: JSON.stringify({ is_done: 1 }),
     });
@@ -1182,7 +1201,11 @@ const updateStatus = async (event) => {
     if (response.ok) {
       console.log("Task updated successfully.");
       document.getElementById("updateStatusModal").classList.add("hidden");
-      location.reload();
+
+      if (tasks_maindiv) {
+        await displaySubjects();
+        await displayTasks(subjId); //currentId here is the task not the subject change to subjId
+      }
     } else {
       console.error("Failed to update task.");
     }
@@ -1198,15 +1221,14 @@ const reupdateStatus = async (event) => {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
-        Authorization: token, //  Add token to authorize request
+        Authorization: token, 
       },
       body: JSON.stringify({ is_done: 0 }),
     });
 
     if (response.ok) {
-      console.log("Task updated successfully.");
       document.getElementById("reupdateStatusModal").classList.add("hidden");
-      location.reload();
+      displayDone();
     } else {
       console.error("Failed to update task.");
     }
@@ -1216,10 +1238,12 @@ const reupdateStatus = async (event) => {
 };
 
 // SHOWING MODAL
-const showModal = async (event, id, modalName) => {
+const showModal = async (event, id, modalName, subj_id = null) => {
   event.stopPropagation();
   event.preventDefault();
   currentId = id;
+  subjId = subj_id;
+
   console.log(currentId)
 
   const target = event.currentTarget;
@@ -1264,13 +1288,9 @@ const showModal = async (event, id, modalName) => {
     // document.querySelector('#editTaskForm input[name="task_image"]').value =
     // task_image;
   }
-  // const id = target.dataset.id;
-  
-  
-
-
-  const subjModal = document.getElementById(`${modalName}`);
-  subjModal.classList.remove("hidden");
+ 
+  const modal = document.getElementById(`${modalName}`);
+  modal.classList.remove("hidden");
 };
 
 // COLOR OPACITY OF TASKS
@@ -1289,23 +1309,24 @@ const hexToRgba = (hex, opacity) => {
 }
 
 
-const token_for_id = localStorage.getItem("jwt");
-let userId;
+const checkLogout = () => {
+  const token_for_id = localStorage.getItem("jwt");
 
-// Helper function to decode JWT
-if (token_for_id){
-  function decodeJWT(token) {
-    const payload = token.split(".")[1];
-    const decoded = atob(payload);
-    return JSON.parse(decoded);
-  } 
-  const decoded = decodeJWT(token_for_id);
-  userId = decoded.user_id; // ✅ Get the user_id from JWT
-  
-} else {
+  // Helper function to decode JWT
+  if (token_for_id) {
+    function decodeJWT(token) {
+      const payload = token.split(".")[1];
+      const decoded = atob(payload);
+      return JSON.parse(decoded);
+    }
+    const decoded = decodeJWT(token_for_id);
+    userId = decoded.user_id; // ✅ Get the user_id from JWT
+  } else {
     window.location.href = "/dist/login.html";
+  }
 }
 
+checkLogout();
 
 const logout = () => {
   localStorage.removeItem("jwt"); // Remove token

@@ -383,6 +383,26 @@
             </form>
           </div>
         </div>
+
+        <div id="deleteDoneModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 hidden">
+          <div class="bg-bg w-full max-w-sm md:max-w-md p-6 rounded-[8px] shadow-xl relative">
+            <!-- Close button -->
+            <button onclick="document.getElementById('deleteDoneModal').classList.add('hidden')" class="absolute top-2 right-2 text-gray-400 hover:text-gray-600">
+              &times;
+            </button>
+        
+            <h2 class="text-base md:text-lg font-semibold text-primary mb-4">Delete Task</h2>
+        
+            <p class="pb-7">Are you sure you want to delete?</p>
+        
+              <!-- Submit -->
+              <div class="flex justify-end gap-3">
+                <button onclick="deleteDone(event)" class="bg-primary text-white px-3 py-2 md:px-4 md:py-2 rounded-md hover:bg-opacity-90"><p>Delete</p></button>
+                <button onclick="document.getElementById('deleteDoneModal').classList.add('hidden')" class="bg-primary text-white px-3 py-2 md:px-4 md:py-2 rounded-md hover:bg-opacity-90"><p>Cancel</p></button>
+              </div>
+            </form>
+          </div>
+        </div>
         
         <div id="deleteSubjModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 hidden">
           <div class="bg-bg w-full max-w-sm md:max-w-md p-6 rounded-[8px] shadow-xl relative">
