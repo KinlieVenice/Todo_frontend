@@ -200,9 +200,15 @@ const displaySubjects = async () => {
   const pending = document.getElementById("pendingTab");
   const done = document.getElementById("doneTab");
 
+  const mobilePending = document.getElementById("mobilependingTab");
+  const mobileDone = document.getElementById("mobiledoneTab");
+
   // Toggle visibility first
   pending.classList.add("tabs-selected");
   done.classList.remove("tabs-selected");
+
+  mobilePending.classList.add("tabs-selected");
+  mobileDone.classList.remove("tabs-selected");
 
     subjects.forEach((subject) => {
       const color = subject.task_length == 0 ? "Gainsboro" : subject.color;
@@ -306,9 +312,15 @@ const displayDone = async () => {
   const pending = document.getElementById("pendingTab");
   const done = document.getElementById("doneTab");
 
+  const mobilePending = document.getElementById("mobilependingTab");
+  const mobileDone = document.getElementById("mobiledoneTab");
+
   // Toggle visibility first
   pending.classList.remove("tabs-selected");
   done.classList.add("tabs-selected");
+
+  mobilePending.classList.remove("tabs-selected");
+  mobileDone.classList.add("tabs-selected");
 
 
   tasks.forEach((task) => {
@@ -336,7 +348,7 @@ const displayDone = async () => {
                       <label class="inline-flex items-center cursor-pointer">
                         <input type="checkbox" name="done" value="${task.id}" class="peer sr-only" onclick="showModal(event, ${task.id}, 'reupdateStatusModal')" checked/>
                         <span class="checkbox"></span>
-                        <h3 class="font-semibold ml-2">${task.name}</h3>
+                        <p class="font-semibold ml-2">${task.name}</p>
                       </label>
                       <p><span class="text-green-500">Done!</span></p>
                     </span>
@@ -361,13 +373,6 @@ const displayMajor = async () => {
 
   document.getElementById("task_title").innerHTML = "My Tasks";
   document.getElementById("task_filters").classList.remove("hidden");
-
-  const pending = document.getElementById("pendingTab");
-  const done = document.getElementById("doneTab");
-
-  // Toggle visibility first
-  pending.classList.add("tabs-selected");
-  done.classList.remove("tabs-selected");
 
     subjects.forEach((subject) => {
       const color = subject.task_length == 0 ? "Gainsboro" : subject.color;
@@ -409,12 +414,7 @@ const displayMinor = async () => {
   const subj_div = document.getElementById("subject_div");
   subj_div.className = "";
   subj_div.innerHTML = "";
-  const pending = document.getElementById("pendingTab");
-  const done = document.getElementById("doneTab");
-
-  // Toggle visibility first
-  pending.classList.add("tabs-selected");
-  done.classList.remove("tabs-selected");
+ 
 
     subjects.forEach((subject) => {
       const color = subject.task_length == 0 ? "Gainsboro" : subject.color;
@@ -519,7 +519,7 @@ const displayUser = async (id) => {
             </svg>
             <p>My Tasks</p>
           </div>
-          <div class="tabs-indent" id="pendingTab"  onclick="displaySubjects()">
+          <div class="tabs-indent tabs-selected" id="pendingTab"  onclick="displaySubjects()">
             <svg
               width="26"
               height="26"
@@ -611,7 +611,7 @@ const displayUser = async (id) => {
             </svg>
             <p>My Tasks</p>
           </div>
-          <div class="tabs-indent" id="pendingTab"  onclick="displaySubjects(); toggleMenu()">
+          <div class="tabs-indent tabs-selected" id="mobilependingTab"  onclick="displaySubjects(); toggleMenu()">
             <svg
               width="26"
               height="26"
@@ -626,7 +626,7 @@ const displayUser = async (id) => {
             </svg>
             <p>Pending</p>
           </div>
-          <div class="tabs-indent" id="doneTab" onclick="displayDone(); toggleMenu();"
+          <div class="tabs-indent" id="mobiledoneTab" onclick="displayDone(); toggleMenu();"
 >
             <svg
               width="26"
